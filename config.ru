@@ -1,9 +1,11 @@
+# encoding: UTF-8
 require 'rubygems'
 require 'bundler'
 Bundler.setup
 
 require 'sinatra'
 require 'sass/plugin/rack'
+require 'haml'
 
 require 'app'
 

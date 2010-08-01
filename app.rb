@@ -1,8 +1,9 @@
 require 'rest-client'
 
-Sass::Plugin.options[:syntax] = :scss
-
-mime_type :manifest, "text/cache-manifest"
+configure do
+  Sass::Plugin.options[:syntax] = :scss
+  mime_type :manifest, "text/cache-manifest"
+end
 
 get '/' do
   haml :index
