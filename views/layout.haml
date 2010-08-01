@@ -3,17 +3,16 @@
 %html{lang: "en", :manifest => "/offline.manifest"}
   %head
     %meta{charset: "utf-8"}
+    %title Grip. Time to burn some.
     %link{rel: "stylesheet", href: "/stylesheets/layout.css"}
     %link{rel: "apple-touch-icon-precomposed", :href => "/images/icons/appicon.png"}
-    %title Offline currency. Time to burn some ¥
     %meta{name: "viewport", content:"width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"}
     %meta{name: "apple-mobile-web-app-capable", content: "yes"}
     %meta{name: "apple-mobile-web-app-status-bar-style", content: "black"}
       
   %body
     = yield
-    /
-      %footer
+    %footer
       %p
         %em &real;
         Another 
