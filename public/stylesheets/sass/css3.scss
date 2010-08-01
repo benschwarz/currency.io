@@ -1,0 +1,46 @@
+@mixin border-radius($radius: 0px) { 
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin box-shadow($x, $y, $blur, $colour) {
+	-webkit-box-shadow: $x, $y, $blur, $colour;
+	-moz-box-shadow: $x, $y, $blur, $colour;
+	-ms-box-shadow: $x, $y, $blur, $colour;
+	-o-box-shadow: $x, $y, $blur, $colour;
+	box-shadow: $x, $y, $blur, $colour;
+}
+
+@mixin column-count($count) { 
+	-webkit-column-count: $count;
+	-moz-column-count: $count;
+	-ms-column-count: $count;
+	-o-column-count: $count;
+	column-count: $count;
+}
+
+@mixin column-gap($gap) { 
+	-webkit-column-gap: $gap;
+	-moz-column-gap: $gap;
+	-ms-column-gap: $gap;
+	-o-column-gap: $gap;
+	column-gap: $gap;
+}
+
+@mixin column-width($width) { 
+	-webkit-column-width: $width;
+	-moz-column-width: $width;
+	-ms-column-width: $width;
+	-o-column-width: $width;
+	column-width: $width;
+}
+
+@mixin background-size($value) {
+	-webkit-background-size: $value;
+	-moz-background-size: $value;
+	-o-background-size: $value;
+	background-size: $value;
+}

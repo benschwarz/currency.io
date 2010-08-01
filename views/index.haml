@@ -1,0 +1,40 @@
+%menu#settings
+  %button
+    %img{src: "/images/icons/gear.png"}
+  %ul
+    %li
+      %form#local
+        %fieldset
+          %legend What is your primary currency?
+          %select#primary_currency
+            %option{value: "AUD"} Australian Dollar (AUD)
+            %option{value: "EUR"} Euro (EUR)
+            %option{value: "SEK"} Swedish Krona (SEK)
+            %option{value: "CAD"} Canadian Dollar (CAD)
+            %option{value: "NZD"} New Zealand Dollar (NZD)
+            %option{value: "GBP"} British Pound Sterling (GBP)
+            %option{value: "HKD"} Hong Kong Dollar (HKD)
+            %option{value: "JPY"} Japanese Yen (JPY)
+            %option{value: "USD"} US Dollar (USD)
+    %li
+      %form#sync
+        %fieldset
+          %legend Currency that you're currently burning
+          %select#convert_currency
+            %option{value: "JPY"} Japanese Yen (JPY)
+            %option{value: "EUR"} Euro (EUR)
+            %option{value: "SEK"} Swedish Krona (SEK)
+            %option{value: "CAD"} Canadian Dollar (CAD)
+            %option{value: "NZD"} New Zealand Dollar (NZD)
+            %option{value: "GBP"} British Pound Sterling (GBP)
+            %option{value: "HKD"} Hong Kong Dollar (HKD)
+            %option{value: "AUD"} Australian Dollar (AUD)
+            %option{value: "USD"} US Dollar (USD)
+
+%form#converter
+  %fieldset
+    %label{for: "spend"}
+      How much is it? 
+      %em
+    %input#spend{type: "number"}
+  %output

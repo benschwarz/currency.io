@@ -1,0 +1,17 @@
+/* HTML5 */
+header, footer, article, section, aside, nav, menu, figure, output {
+  display: block; }
+
+/* Resets */
+body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, dt, dd, table, caption, th, td, fieldset, legend, blockquote {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  list-style-type: none; }
+
+a img, form, legend {
+  border: 0; }
+
+fieldset, abbr {
+  border: none; }

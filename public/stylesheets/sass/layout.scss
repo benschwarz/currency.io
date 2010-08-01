@@ -1,0 +1,35 @@
+@import "reset";
+@import "css3";
+
+html { background: -webkit-gradient(radial, center center, 0, center center, 760, from(#555), to(#222)); }
+body { font-family: Helvetica; font-size: 62.5%; width: 47.5em; margin: 0 auto; color: white; position: relative; text-rendering: optimizeLegibility; -webkit-text-stroke: 1px transparent; }
+
+menu#settings {
+	position: absolute; 
+	top: 0; right: 0; 
+	background: hsla(0deg, 0%, 25%, 0.75);
+	padding: 1em;
+	font-size: 1.2em;
+	@include border-radius(2em);
+		
+	button { background: none; border: none; float: right; }
+	ul { display: none; }
+	&.active ul { display: block; } 
+	li { margin: 1em 0; }
+}
+
+form#converter {
+	margin: 5em 0;
+	label { font-size: 3em; font-weight: bold; display: block; }
+	label em { display: block; font-weight: normal; font-size: 0.4em; }
+	
+	input[type=number] { font-size: 2em; }
+	output { font-size: 3em; margin: 3em 0;}
+}
+
+footer {
+	text-align: center;
+	font-size: 1.2em;
+	
+	em { display: block; } 
+}

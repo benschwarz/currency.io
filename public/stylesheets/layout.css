@@ -1,0 +1,75 @@
+/* HTML5 */
+header, footer, article, section, aside, nav, menu, figure, output {
+  display: block; }
+
+/* Resets */
+body, h1, h2, h3, h4, h5, h6, p, a, ul, ol, dt, dd, table, caption, th, td, fieldset, legend, blockquote {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  list-style-type: none; }
+
+a img, form, legend {
+  border: 0; }
+
+fieldset, abbr {
+  border: none; }
+
+html {
+  background: -webkit-gradient(radial, center center, 0, center center, 760, from(#555555), to(#222222)); }
+
+body {
+  font-family: Helvetica;
+  font-size: 62.5%;
+  width: 47.5em;
+  margin: 0 auto;
+  color: white;
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-text-stroke: 1px transparent; }
+
+menu#settings {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(64, 64, 64, 0.75);
+  padding: 1em;
+  font-size: 1.2em;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em; }
+  menu#settings button {
+    background: none;
+    border: none;
+    float: right; }
+  menu#settings ul {
+    display: none; }
+  menu#settings.active ul {
+    display: block; }
+  menu#settings li {
+    margin: 1em 0; }
+
+form#converter {
+  margin: 5em 0; }
+  form#converter label {
+    font-size: 3em;
+    font-weight: bold;
+    display: block; }
+  form#converter label em {
+    display: block;
+    font-weight: normal;
+    font-size: 0.4em; }
+  form#converter input[type=number] {
+    font-size: 2em; }
+  form#converter output {
+    font-size: 3em;
+    margin: 3em 0; }
+
+footer {
+  text-align: center;
+  font-size: 1.2em; }
+  footer em {
+    display: block; }
