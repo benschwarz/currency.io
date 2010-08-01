@@ -16,5 +16,5 @@ end
 
 get '/offline.manifest' do
   content_type :manifest
-  erb "offline.manifest"
+  erb :"offline.manifest"
 end
