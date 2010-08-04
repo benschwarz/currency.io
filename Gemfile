@@ -3,4 +3,4 @@ source :rubygems
 gem "thin"
 gem "sinatra", "1.0"
 gem "haml"
-gem "rest-client"
+gem "rest-client", "1.6.0"
