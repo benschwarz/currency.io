@@ -1,12 +1,11 @@
 require 'rest-client'
 
 configure do
-  Sass::Plugin.options[:syntax] = :scss
   mime_type :manifest, "text/cache-manifest"
 end
 
 get '/' do
-  haml :index
+  erb :index
 end
 
 get '/exchange' do
