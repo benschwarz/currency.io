@@ -27,7 +27,7 @@
     nav ul li { background: #eee; border-radius: 0.4em; -webkit-box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.15); width: 11em; margin: 0em auto; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f7f7f7), to(#e4e4e4)); }
     nav ul li a { font-size: 1em; color: #777; display: block; padding: 0.5em 0em 0.5em; text-decoration: none; font-weight: normal; border: 0.1em solid rgba(0, 0, 0, 0.05); border-radius: 0.4em; text-shadow: 0.1em 0.1em 0em #fff; -webkit-box-shadow: inset 0em -0.1em 0em rgba(255, 255, 255, 0.4); }
     
-    section#rates { font-size: 1em; color: #666; padding: 1.2em 0em; background: rgba(255, 255, 255, 1); float: left; width: 100%; }
+    section#rates { font-size: 1em; color: #666; padding: 1.2em 0em; background: rgba(255, 255, 255, 1); float: left; border-bottom: 0.2em solid #f3f3f3; width: 100%; margin: 0em 0em 1.2em; cursor: pointer; }
     section#rates em { color: #ccc; padding: 0em 1.5em; }
     
     section#to,
@@ -103,89 +103,10 @@
           <li><a href="#" id="save-currencies">Save</a></li>
         </ul>
       </nav>
-      <ul id="from-currency">
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li class="selected">
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>¥ Japanese Yen</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-      </ul>
-      <ul id="to-currency">
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li class="selected">
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-        <li>
-          <h1><span>$ Australian Dollars</span></h1>
-          <h2>Synced: <strong>1 hour ago</strong></h2>
-        </li>
-      </ul>
+      <ul id="from-currency"></ul>
+      <ul id="to-currency"></ul>
     </div>
     
-    <nav>
-      <ul>
-        <li><a href="#" id="change-currencies">Change currencies</a></li>
-      </ul>
-    </nav>
     <section id="rates">
       <em>¥100</em>JPY 
       <span>&rarr;</span> 
@@ -260,20 +181,23 @@
     
     var $ = function(q) { return document.querySelectorAll(q) };
     
-    var Currency = {
+    var CurrencyConverter = {
       rate: 0.0127199,
       input: $('section#from h1')[0],
       output: $('section#to h1')[0],
       buttons: $('section#numpad p'),
-      currencies: $('div#currencies span'),
+      currencies: null,
       
       init: function() {
+        this.draw_currencies();
+        this.currencies = $('div#currencies span');
+        
         for (var i = 0, ii = this.buttons.length - 1; i < ii; i++){
           this.buttons[i].addClick(function() {
             (function(targ) {
               this.input.innerHTML.match(/^0$/) && (this.input.innerHTML = '');
               this.update_values(this.input.innerHTML + targ.innerHTML);
-            }).call(Currency, this);
+            }).call(CurrencyConverter, this);
           });
         }
         
@@ -281,21 +205,23 @@
           (function(targ) {
             if (!!this.input.innerHTML.match(/^0$/)) return;
             this.update_values(this.input.innerHTML.substr(0, this.input.innerHTML.length - 1));
-          }).call(Currency, this);
+          }).call(CurrencyConverter, this);
         });
         
-        for (var i = 0, ii = this.currencies.length - 1; i < ii; i++){
+        for (var i = 0, ii = this.currencies.length; i < ii; i++){
           this.currencies[i].addClick(function(e) {
-            var lis = this.parentNode.parentNode.parentNode.childNodes;
+            var lis = this.parentNode.parentNode.parentNode.childNodes,
+                li = this.parentNode.parentNode;
             for (var i = 0, ii = lis.length; i < ii; i++) {
               if(!lis[i].className) continue;
-              lis[i].className = lis[i].className.replace(/\bselected\b/g, '');
+              lis[i].className = lis[i].className.replace(/\s\bselected\b/g, '');
             }
-            this.parentNode.parentNode.className += ' selected';
+            li.className += ' selected';
+            CurrencyConverter.update_currencies();
           });
         }
         
-        $('a#change-currencies')[0].addClick(function() {
+        $('section#rates')[0].addClick(function() {
           $('body')[0].className = 'change-currencies';
         });
         
@@ -305,6 +231,39 @@
 
         // Disable page scrolling
         document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+      },
+      
+      update_currencies: function() {
+        var from = window.currencies[$("ul#from-currency li.selected")[0].id],
+            to = window.currencies[$("ul#to-currency li.selected")[0].id];
+
+        $("section#from h2")[0].innerHTML = from.symbol+' '+from.name;
+        $("section#to h2")[0].innerHTML = to.symbol+' '+to.name;
+        
+        this.input.innerHTML = this.output.innerHTML = "0";
+            
+        this.rate = from.rate_usd * (1 / to.rate_usd);
+      },
+      
+      draw_currencies: function() {
+        var currency_list = '',
+            currencies = window.currencies;
+
+        for(var i in currencies) {
+          if(typeof currencies[i] === 'function') continue;
+          currency_list += '<li id="'+i+'" data-rate="'+currencies[i].rate_usd+'">';
+          currency_list += '<h1><span>'+currencies[i].symbol+' '+currencies[i].name+'</span></h1>';
+          currency_list += '<h2>Last synced: <strong>1 hour ago</strong></h2>';
+          currency_list += '</li>';
+        }
+        
+        $("ul#from-currency")[0].innerHTML = currency_list;
+        $("ul#to-currency")[0].innerHTML = currency_list;
+        
+        $("ul#from-currency li:nth-child(1)")[0].className += ' selected';
+        $("ul#to-currency li:nth-child(2)")[0].className += ' selected';
+        
+        this.update_currencies();
       },
       
       update_values: function(value) {
@@ -331,7 +290,7 @@
       
     }
     
-    Currency.init();
+    CurrencyConverter.init();
     
   </script>
 </body>
@@ -342,8 +301,7 @@
 
     TODO:
       - Add support for decimal places (up to 2)
-      - Build screen to select currencies
       - Online/offline indicators
       - Save exchange rates to local DB
-  
+
 -->
