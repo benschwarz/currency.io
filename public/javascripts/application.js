@@ -98,6 +98,11 @@ var CurrencyConverter = {
 
     this.rate = from.rate_usd * (1 / to.rate_usd);
 
+    html += '<em>'+from.symbol+'1</em>'+from_id;
+    html += ' <span>&rarr;</span> ';
+    html += to_id+'<em>'+to.symbol+(this.rate.toFixed(2))+'~</em>';
+    $('section#rates')[0].innerHTML = html;
+
     this.input.innerHTML = this.output.innerHTML = "0";
   },
   
