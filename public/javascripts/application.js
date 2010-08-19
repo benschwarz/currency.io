@@ -16,7 +16,7 @@ Object.prototype.addClick = function(func){
     }, false);
     
     this.addEventListener('touchend', function(e){
-      if(!this.moved) func.call(this);
+      if(!this.moved) func.call(this, e);
       this.removeEventListener('touchmove');
       
       this.className = this.className.replace(/\spressed/g, '');
@@ -70,11 +70,13 @@ var CurrencyConverter = {
       });
     }
     
-    $('section#rates')[0].addClick(function() {
+    $('section#rates')[0].addClick(function(e) {
+      e.preventDefault();
       $('body')[0].className = 'change-currencies';
     });
     
-    $('a#save-currencies')[0].addClick(function() {
+    $('a#save-currencies')[0].addClick(function(e) {
+      e.preventDefault();
       $('body')[0].className = '';
     });
     
