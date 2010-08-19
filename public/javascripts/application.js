@@ -1,10 +1,7 @@
 /*
 
     TODO:
-    - Save exchange rates to local DB
-    - Update exchange rates dynamically
     - Add support for decimal places (up to 2)
-    - Online/offline indicators
 
 */
 
