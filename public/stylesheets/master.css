@@ -73,7 +73,7 @@ ul#from-currency li { border-right: 0.1em solid #eee; padding: 0.25em 0em; }
 div#currencies h1,
 div#currencies h2 { margin: 0em; }
 
-div#currencies h1 { font-size: 1.1em; position: relative; display: block; }
+div#currencies h1 { font-size: 1.0em; position: relative; display: block; }
 div#currencies h2 { font-size: 0.75em; font-weight: normal; color: #bbb; margin: 1.9em 2.4em 0em; }
 
 div#currencies h1:after { content: '\25cb'; position: absolute; top: 0.15em; right: 0.6em; color: #bbb; font-size: 0.8em; pointer-events: none; }
