@@ -81,6 +81,21 @@ var CurrencyConverter = {
   },
   
   update_currencies: function() {
+    for (var id in window.currencies) {
+      if(!window.currencies.hasOwnProperty(id)) continue;
+      (function(id) {
+        var r = new XMLHttpRequest();
+        r.open('GET', '/exchange?from='+id, false);
+        r.send(null);
+        
+        window.currencies[id].rate_usd = parseFloat(JSON.parse(r.responseText)['query']['results']['json']['rhs']);
+      })(id);
+    };
+
+    localStorage.currencies = JSON.stringify(window.currencies);
+    CurrencyConverter.update_currency_display();
+  },
+  
   update_currency_display: function() {
     var from_id = $("ul#from-currency li.selected")[0].id,
         to_id = $("ul#to-currency li.selected")[0].id,
