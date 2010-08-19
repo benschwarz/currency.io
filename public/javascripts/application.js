@@ -25,7 +25,7 @@ Object.prototype.addClick = function(func){
 var $ = function(q) { return document.querySelectorAll(q) };
 
 var CurrencyConverter = {
-  rate: 0.0127199,
+  rate: 1,
   input: $('section#from h1')[0],
   output: $('section#to h1')[0],
   buttons: $('section#numpad p'),
