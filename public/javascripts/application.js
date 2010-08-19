@@ -60,7 +60,8 @@ var CurrencyConverter = {
           lis[i].className = lis[i].className.replace(/\s\bselected\b/g, '');
         }
         li.className += ' selected';
-        CurrencyConverter.update_currencies();
+
+        CurrencyConverter.update_currency_display();
       });
     }
     
@@ -80,6 +81,7 @@ var CurrencyConverter = {
   },
   
   update_currencies: function() {
+  update_currency_display: function() {
     var from_id = $("ul#from-currency li.selected")[0].id,
         to_id = $("ul#to-currency li.selected")[0].id,
         from = window.currencies[from_id],
@@ -117,7 +119,7 @@ var CurrencyConverter = {
     $("ul#from-currency li:nth-child(1)")[0].className += ' selected';
     $("ul#to-currency li:nth-child(2)")[0].className += ' selected';
     
-    this.update_currencies();
+    this.update_currency_display();
   },
   
   update_values: function(value) {
