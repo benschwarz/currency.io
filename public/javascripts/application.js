@@ -103,11 +103,11 @@ var CurrencyConverter = {
     var currency_list = '',
         currencies = window.currencies;
 
-    for(var i in currencies) {
-      if(typeof currencies[i] === 'function') continue;
-      currency_list += '<li id="'+i+'" data-rate="'+currencies[i].rate_usd+'">';
-      currency_list += '<h1><span>'+currencies[i].symbol+' '+currencies[i].name+'</span></h1>';
-      currency_list += '<h2>Last synced: <strong>1 hour ago</strong></h2>';
+    for(var id in currencies) {
+      if(!window.currencies.hasOwnProperty(id)) continue;
+      currency_list += '<li id="'+id+'" data-rate="'+currencies[id].rate_usd+'">';
+      currency_list += '<h1><span>'+currencies[id].symbol+' '+currencies[id].name+'</span></h1>';
+      currency_list += '<h2>Synced: <strong>1 hour ago</strong></h2>';
       currency_list += '</li>';
     }
     
