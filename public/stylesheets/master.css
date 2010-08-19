@@ -56,7 +56,7 @@ section#numpad p.pressed { -webkit-box-shadow: inset 0em 0.2em 0.6em rgba(0, 0, 
 
 */
 
-body.change-currencies div#currencies { -webkit-transform: translateX(0%); }
+body.change-currencies div#currencies { -webkit-transform: translateX(0%); height: 100%; }
 
 div#currencies { background: #f7f7f7; padding: 0em 0em; float: left; width: 100%; position: absolute; z-index: 1; -webkit-transform: translateX(100%); -webkit-transition: -webkit-transform 0.25s ease-in;  }
 div#currencies nav { height: auto; border-bottom: 0.2em solid #eee; }
