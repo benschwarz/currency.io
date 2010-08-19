@@ -68,7 +68,11 @@ var CurrencyConverter = {
           lis[i].className = lis[i].className.replace(/\s\bselected\b/g, '');
         }
         li.className += ' selected';
-
+        
+        window.from_to.from = $('ul#from-currency li.selected')[0].getAttribute('data-id');
+        window.from_to.to = $('ul#to-currency li.selected')[0].getAttribute('data-id');
+        localStorage.from_to = JSON.stringify(window.from_to);
+        
         CurrencyConverter.update_currency_display();
       });
     }
@@ -105,8 +109,8 @@ var CurrencyConverter = {
   },
   
   update_currency_display: function() {
-    var from_id = $("ul#from-currency li.selected")[0].id,
-        to_id = $("ul#to-currency li.selected")[0].id,
+    var from_id = window.from_to.from,
+        to_id = window.from_to.to,
         from = window.currencies[from_id],
         to = window.currencies[to_id],
         html = '';
@@ -130,17 +134,17 @@ var CurrencyConverter = {
 
     for(var id in currencies) {
       if(!window.currencies.hasOwnProperty(id)) continue;
-      currency_list += '<li id="'+id+'" data-rate="'+currencies[id].rate_usd+'">';
+      currency_list += '<li id="'+id+'" data-id="'+id+'">';
       currency_list += '<h1><span>'+currencies[id].symbol+' '+currencies[id].name+'</span></h1>';
       currency_list += '<h2>Synced: <strong>1 hour ago</strong></h2>';
       currency_list += '</li>';
     }
     
-    $("ul#from-currency")[0].innerHTML = currency_list;
-    $("ul#to-currency")[0].innerHTML = currency_list;
+    $("ul#from-currency")[0].innerHTML = currency_list.replace(/\sid=\"([^\"]+)\"/g, ' id="from-$1"');
+    $("ul#to-currency")[0].innerHTML = currency_list.replace(/\sid=\"([^\"]+)\"/g, ' id="to-$1"');
     
-    $("ul#from-currency li:nth-child(1)")[0].className += ' selected';
-    $("ul#to-currency li:nth-child(2)")[0].className += ' selected';
+    $('ul#from-currency li#from-'+window.from_to.from)[0].className += ' selected';
+    $('ul#to-currency li#to-'+window.from_to.to)[0].className += ' selected';
     
     this.update_currency_display();
   },
