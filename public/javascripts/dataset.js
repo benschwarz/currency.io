@@ -17,7 +17,17 @@ if(!localStorage.currencies) {
     },
     "SGD" : {
       "name": "Singapore Dollars",
-      "symbol": "S$",
+      "symbol": "$",
+      "rate_usd": "1"
+    },
+    "EUR": {
+      "name": "Euro",
+      "symbol": "€",
+      "rate_usd": "1"
+    },
+    "USD": {
+      "name": "US Dollars",
+      "symbol": "$",
       "rate_usd": "1"
     }
   });
