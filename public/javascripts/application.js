@@ -71,7 +71,10 @@ var CurrencyConverter = {
     $('a#save-currencies')[0].addClick(function() {
       $('body')[0].className = '';
     });
-
+    
+    if(!navigator.onLine) $('p#network-status')[0].className = 'offline';
+    else CurrencyConverter.update_currencies();
+    
     // Disable page scrolling
     document.addEventListener('touchmove', function(e){ e.preventDefault(); });
   },

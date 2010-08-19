@@ -19,7 +19,11 @@ nav ul { list-style: none; padding: 0em 0em 0.1em; }
 nav ul li { background: #eee; border-radius: 0.4em; -webkit-box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.15); width: 11em; margin: 0em auto; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f7f7f7), to(#e4e4e4)); }
 nav ul li a { font-size: 1em; color: #777; display: block; padding: 0.5em 0em 0.5em; text-decoration: none; font-weight: normal; border: 0.1em solid rgba(0, 0, 0, 0.05); border-radius: 0.4em; text-shadow: 0.1em 0.1em 0em #fff; -webkit-box-shadow: inset 0em -0.1em 0em rgba(255, 255, 255, 0.4); }
 
-section#rates { font-size: 1em; color: #666; padding: 1.2em 0em; background: rgba(255, 255, 255, 1); float: left; border-bottom: 0.2em solid #f3f3f3; width: 100%; margin: 0em 0em 1.2em; cursor: pointer; }
+p#network-status { padding: 1.2em 0em 1em; margin: 0em; font-weight: normal; font-size: 0.9em; color: #888; }
+p.online:before { content: '\2713\0020'; color: green; font-weight: bold; }
+p.offline:before { content: '\2715\0020'; color: red; font-weight: bold; }
+
+section#rates { font-size: 1em; color: #666; padding: 0em 0em 1.2em; background: rgba(255, 255, 255, 1); float: left; border-bottom: 0.2em solid #f3f3f3; width: 100%; margin: 0em 0em 1.2em; cursor: pointer; }
 section#rates em { color: #ccc; padding: 0em 1.5em; }
 
 section#to,
