@@ -2,6 +2,7 @@
 
     TODO:
     - Add support for decimal places (up to 2)
+    - Last synced
 
 */
 
@@ -29,7 +30,7 @@ Object.prototype.addClick = function(func){
   }
 }
 
-var $ = function(q) { return document.querySelectorAll(q) };
+var $ = function(q) { return document.querySelectorAll(q); };
 
 var CurrencyConverter = {
   rate: 1,
