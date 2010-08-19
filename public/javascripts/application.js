@@ -8,12 +8,20 @@
 Object.prototype.addClick = function(func){
   if (window.Touch){
     this.addEventListener('touchstart', function(e){
-      func.call(this);
       this.className += ' pressed';
+      this.moved = false;
+      
+      this.addEventListener('touchmove', function(e){ this.moved = true; }, false);
+      
     }, false);
+    
     this.addEventListener('touchend', function(e){
+      if(!this.moved) func.call(this);
+      this.removeEventListener('touchmove');
+      
       this.className = this.className.replace(/\spressed/g, '');
     }, false);
+    
   } else {
     this.addEventListener('click', func);
   }
