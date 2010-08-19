@@ -76,7 +76,7 @@ var CurrencyConverter = {
     else CurrencyConverter.update_currencies();
     
     // Disable page scrolling
-    document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+    //document.addEventListener('touchmove', function(e){ e.preventDefault(); });
   },
   
   update_currencies: function() {
