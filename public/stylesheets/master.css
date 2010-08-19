@@ -48,7 +48,7 @@ small strong { color: #777; font-weight: normal; }
 section#numpad { float: left; width: 110%; margin: 0% 0% 0% -5%; padding: 2% 0% 5% 5%; }
 section#numpad p { float: left; width: 10%; padding: 3% 10%; margin: 3% 0%; border-right: 0.05em solid #ddd; font-size: 2.2em; cursor: pointer; }
 section#numpad p:nth-child(3n) { border: 0em; }
-section#numpad p.pressed { -webkit-box-shadow: inset 0em 0.2em 0.6em rgba(0, 0, 0, 0.15); }
+section#numpad p.pressed { color: #ccc; }
 
 /*
 
