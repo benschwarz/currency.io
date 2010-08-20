@@ -102,7 +102,7 @@ var CurrencyConverter = {
 		}
 		
 		var request = new XMLHttpRequest();
-		request.open('POST', '/exchange?currencies='+currencies.toString(), false);
+		request.open('POST', '/exchange?currencies='+currencies.toString(), true);
     request.send(null);
     
 		var response = JSON.parse(request.responseText);
