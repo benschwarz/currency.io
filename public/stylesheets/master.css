@@ -87,7 +87,7 @@ div#currencies li.selected h1:after { color: #3fa9f5; content: '\25cf'; font-siz
 
 div#currencies h2 strong { font-weight: normal; color: #999;  }
 
-ul#to-currency h1 span { padding: 0.5em 1em 0em 1.8em; }
-ul#from-currency h1 span { padding: 0.5em 1.8em 0em 1em; }
+ul#to-currency h1 span { padding: 0.5em 0em 0em 1.8em; }
+ul#from-currency h1 span { padding: 0.5em 1.8em 0em 0em; }
 
 div#currencies h1 span { position: absolute; top: -0.5em; left: 0em; right: 0em; color: #777; background: transparent; text-decoration: none; display: block; height: 2.9em; }
