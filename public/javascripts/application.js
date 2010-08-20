@@ -93,17 +93,23 @@ var CurrencyConverter = {
   },
   
   update_currencies: function() {
-    for (var id in window.currencies) {
-      if(!window.currencies.hasOwnProperty(id)) continue;
-      (function(id) {
-        var r = new XMLHttpRequest();
-        r.open('GET', '/exchange?from='+id, false);
-        r.send(null);
-        
-        window.currencies[id].rate_usd = parseFloat(JSON.parse(r.responseText)['query']['results']['json']['rhs']);
-      })(id);
-    };
-
+		// Get our currencies
+		var currencies = [];
+		for (var currency in window.currencies) {
+      if(!window.currencies.hasOwnProperty(currency)) continue;
+      
+			currencies.push(currency);
+		}
+		
+		var request = new XMLHttpRequest();
+		request.open('POST', '/exchange?currencies='+currencies.toString(), false);
+    request.send(null);
+    
+		var response = JSON.parse(request.responseText);
+		for(var key in response) {
+			window.currencies[key].rate_usd = response[key];
+		}
+		
     localStorage.currencies = JSON.stringify(window.currencies);
     CurrencyConverter.update_currency_display();
   },
