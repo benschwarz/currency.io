@@ -17,7 +17,7 @@ div#wrapper { width: 31em; margin: 0em; overflow: hidden; position: relative; }
 nav { border-bottom: 0.2em solid #f3f3f3; width: 80%; margin: 0em auto; }
 nav ul { list-style: none; padding: 0em 0em 0.1em; }
 nav ul li { background: #eee; border-radius: 0.4em; -webkit-box-shadow: 0.1em 0.1em 0.4em rgba(0, 0, 0, 0.15); width: 11em; margin: 0em auto; background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f7f7f7), to(#e4e4e4)); }
-nav ul li a { font-size: 1em; color: #777; display: block; padding: 0.5em 0em 0.5em; text-decoration: none; font-weight: normal; border: 0.1em solid rgba(0, 0, 0, 0.05); border-radius: 0.4em; text-shadow: 0.1em 0.1em 0em #fff; -webkit-box-shadow: inset 0em -0.1em 0em rgba(255, 255, 255, 0.4); }
+nav ul li a { font-size: 1.3em; color: #777; display: block; padding: 0.5em 0em 0.5em; text-decoration: none; font-weight: normal; border: 0.1em solid rgba(0, 0, 0, 0.05); border-radius: 0.4em; text-shadow: 0.1em 0.1em 0em #fff; -webkit-box-shadow: inset 0em -0.1em 0em rgba(255, 255, 255, 0.4); }
 
 p#network-status { pointer-events: none; position: absolute; left: 43%; text-align: center; padding: 1.1em 0em 1em; margin: 0em; font-weight: normal; font-size: 0.9em; color: #888; }
 p.online:before { content: '\2713\0020'; color: green; font-weight: bold; }
@@ -71,13 +71,13 @@ ul#from-currency { margin: 0% 0% 0% 2%; }
 ul#to-currency li,
 ul#from-currency li { margin: 0em 0em 0.9em; display: block; cursor: pointer; }
 
-ul#to-currency li { padding: 0.25em 0em; }
-ul#from-currency li { border-right: 0.1em solid #eee; padding: 0.25em 0em; }
+ul#to-currency li { padding: 1em 0em; }
+ul#from-currency li { border-right: 0.1em solid #eee; padding: 1em 0em; }
 
 div#currencies h1,
 div#currencies h2 { margin: 0em; }
 
-div#currencies h1 { font-size: 1.0em; position: relative; display: block; }
+div#currencies h1 { font-size: 1.2em; position: relative; display: block; }
 div#currencies h2 { font-size: 0.75em; font-weight: normal; color: #bbb; margin: 1.9em 2.4em 0em; }
 
 div#currencies h1:after { content: '\25cb'; position: absolute; top: 0.15em; right: 0.6em; color: #bbb; font-size: 0.8em; pointer-events: none; }
@@ -86,4 +86,8 @@ div#currencies li.selected h1 span { color: #3fa9f5; }
 div#currencies li.selected h1:after { color: #3fa9f5; content: '\25cf'; font-size: 0.9em }
 
 div#currencies h2 strong { font-weight: normal; color: #999;  }
-div#currencies h1 span { position: absolute; top: -0.5em; left: 0em; right: 0em; color: #777; background: transparent; text-decoration: none; display: block; padding: 0em; height: 2.9em; padding: 0.5em 1.6em 0em; }
+
+ul#to-currency h1 span { padding: 0.5em 1em 0em 1.8em; }
+ul#from-currency h1 span { padding: 0.5em 1.8em 0em 1em; }
+
+div#currencies h1 span { position: absolute; top: -0.5em; left: 0em; right: 0em; color: #777; background: transparent; text-decoration: none; display: block; height: 2.9em; }
