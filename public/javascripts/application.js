@@ -142,7 +142,6 @@ var CurrencyConverter = {
       if(!window.currencies.hasOwnProperty(id)) continue;
       currency_list += '<li id="'+id+'" data-id="'+id+'">';
       currency_list += '<h1><span>'+currencies[id].symbol+' '+currencies[id].name+'</span></h1>';
-      currency_list += '<h2>Synced: <strong>1 hour ago</strong></h2>';
       currency_list += '</li>';
     }
     
