@@ -104,14 +104,19 @@ var CurrencyConverter = {
 		var request = new XMLHttpRequest();
 		request.open('POST', '/exchange?currencies='+currencies.toString(), true);
     request.send(null);
-    
-		var response = JSON.parse(request.responseText);
-		for(var key in response) {
-			window.currencies[key].rate_usd = response[key];
+
+		request.onreadystatechange = function() {
+			if(request.readyState===4) {
+				var response = JSON.parse(request.responseText);
+
+				for(var key in response) {
+					window.currencies[key].rate_usd = response[key];
+				}
+
+				localStorage.currencies = JSON.stringify(window.currencies);
+				CurrencyConverter.update_currency_display();
+			}
 		}
-		
-    localStorage.currencies = JSON.stringify(window.currencies);
-    CurrencyConverter.update_currency_display();
   },
   
   update_currency_display: function() {
