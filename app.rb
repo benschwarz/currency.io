@@ -14,6 +14,6 @@ get '/exchange' do
 end
 
 get '/offline.manifest' do
-  content_type :manifest
-  erb :"offline.manifest", :layout => false
+  #content_type :manifest
+  #erb :"offline.manifest", :layout => false
 end
