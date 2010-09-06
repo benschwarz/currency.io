@@ -64,24 +64,8 @@ var $ = function(q) {
 /*
 
   Handle button events
-  
+
 */
-
-var preload = [
-  '/images/on-arrow-down.png',
-  '/images/on-arrow-down-x2.png',
-  '/images/on-arrow-up.png',
-  '/images/on-arrow-up-x2.png',
-  '/images/on-btn-undo-x2.png',
-  '/images/on-btn-undo.png',
-  '/images/on-btn-undo-all.png',
-  '/images/on-btn-undo-all-x2.png'],
-
-  preload_img = new Image();
-
-for (var i = 0, ii = preload.length; i < ii; i++) {
-  preload_img.setAttribute('src', preload[i]);
-}
 
 var buttons = $('#input-pad p');
 for (var i = 0, ii = buttons.length; i < ii; i++) {

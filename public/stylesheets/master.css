@@ -69,11 +69,15 @@ button { margin: 1.5em 0em 1em; }
 
 /*
 
+  Preloading
   iPhone-specfic styles
 
 */
 
+body:after { display: none; content: url('/images/on-arrow-down.png') url('/images/on-arrow-up.png')  url('/images/on-btn-undo.png') url('/images/on-btn-undo-all.png'); }
+
 @media only screen and (max-device-width: 480px) {
+  body:after { display: none; content: url('/images/on-arrow-down-x2.png') url('/images/on-arrow-up-x2.png') url('/images/on-btn-undo-x2.png') url('/images/on-btn-undo-all-x2.png'); }
   body { font-size: 62.5%; }
   p span { font-size: 1.3em; margin: 0em -0.15em 0em 0em; }
   #input h1, #output h1 { letter-spacing: 0.02em; }
