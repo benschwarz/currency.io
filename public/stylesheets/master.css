@@ -25,9 +25,9 @@ div#wrapper { width: 31em; margin: 0em; overflow: hidden; position: relative; }
 
 button { margin: 1.5em 0em 1em; }
 
-#rates { color: #999; font-size: 1.3em; margin: 0em -0.4em 0em 0em; }
+#rates { color: #999; font-size: 1.5em; margin: 0.75em -0.4em 0em 0em; }
 #rates em { color: #ccc; font-size: 0.8em; margin: 0em 0.6em; }
-#rates span { font-size: 0.9em; margin: -0.1em 0.25em 0em; }
+#rates span { font-size: 0.9em; margin: -0.1em 0.1em 0em; }
 
 #input, #output { border-top: 1px solid #f3f3f3; margin: 0.7em 0em; padding: 0.7em 0em 0em; position: relative; }
 #output { margin: 0em 0em 0.7em; }
@@ -36,9 +36,8 @@ button { margin: 1.5em 0em 1em; }
 #output:before { content: '='; }
 
 #input h2, #output h2 { font-size: 0.9em; color: #999; line-height: 0.5; padding: 0.3em 0em 0em; }
-#input h1, #output h1 { font-size: 3.5em; letter-spacing: 0.05em; }
-#input h1 em, #output h1 em { color: #ccc; font-size: 0.3em; vertical-align: middle; position: relative; top: -0.25em; left: -0.3em; }
-#input h1 span, #output h1 span { font-size: 0.5em; position: relative; top: -0.7em; left: 0.1em; }
+#input h1, #output h1 { font-size: 4.2em; letter-spacing: 0.02em; }
+#input h2 em, #output h2 em { color: #ccc; left: -0.3em; }
 
 /*
 
@@ -47,17 +46,27 @@ button { margin: 1.5em 0em 1em; }
 */
 
 #input-pad { background: #f2f2f2; -webkit-box-shadow: inset 0em 0.2em 0.6em rgba(0, 0, 0, 0.15); float: left; width: 110%; margin: 2% 0% 0% -5%; padding: 3% 0% 5% 5%; }
-#input-pad p { float: left; width: 22%; padding: 1em 0em; margin: 1.2% 0%; font-size: 2em; cursor: pointer; text-align: center; }
-#input-pad p { background: url('/images/arrow-up-x2.png') 50% 2% no-repeat, url('/images/arrow-down-x2.png') 50% 98% no-repeat; }
+#input-pad p { float: left; width: 22%; padding: 1em 0em; margin: 1.2% 0%; font-size: 2em; cursor: pointer; text-align: center; position: relative; }
+#input-pad p { background: url('/images/arrow-up-x2.png') 50% 2% no-repeat; }
+/*
 #input-pad .up { background: url('/images/on-arrow-up-x2.png') 50% 2% no-repeat, url('/images/arrow-down-x2.png') 50% 98% no-repeat; }
 #input-pad .down { background: url('/images/arrow-up-x2.png') 50% 2% no-repeat, url('/images/on-arrow-down-x2.png') 50% 98% no-repeat; }
+*/
 
 #input-pad #undo-nav { width: 45%; margin: 0em auto; position: relative; left: -5.5%; }
 #undo-nav p { width: 49%; font-size: 1.5em; padding: 2.5em 0em 0.5em; background: none; }
 #undo-nav #undo { background: url('/images/btn-undo-x2.png') 50% 0% no-repeat; }
-#undo-nav #undo-all { background: url('/images/btn-undo-all-x2.png') 50% 0% no-repeat; }
-#input-pad #undo.up, #input-pad #undo.down { background: url('/images/on-btn-undo-x2.png') 50% 0% no-repeat; }
-#input-pad #undo-all.up, #input-pad #undo-all.down { background: url('/images/on-btn-undo-all-x2.png') 50% 0% no-repeat; }
+#undo-nav#undo-all { background: url('/images/btn-undo-all-x2.png') 50% 0% no-repeat; }
+#input-pad #undo.active { background: url('/images/on-btn-undo-x2.png') 50% 0% no-repeat; }
+#input-pad #undo-all.active { background: url('/images/on-btn-undo-all-x2.png') 50% 0% no-repeat; }
+
+.drag-ui { display: none; width: 4em; height: 3.75em; position: absolute; top: -0.25em; left: -4em; color: #fff; text-shadow: none; overflow: hidden; padding: 0em; z-index: 1; }
+.drag-ui { background: url('/images/rolling-bg-x2.png') 0em 0em no-repeat; }
+.drag-ui { background: #4d4d4d; }
+.drag-ui span { display: block; opacity: 0.2; height: 1.8em; line-height: 1.8em; }
+.drag-ui .selected { opacity: 1; }
+
+#input-pad p:nth-child(4n+1) .drag-ui { left: 4em; }
 
 /*
 
@@ -74,19 +83,19 @@ button { margin: 1.5em 0em 1em; }
 
 */
 
-body:after { display: none; content: url('/images/on-arrow-down.png') url('/images/on-arrow-up.png')  url('/images/on-btn-undo.png') url('/images/on-btn-undo-all.png'); }
-
 @media only screen and (max-device-width: 480px) {
-  body:after { display: none; content: url('/images/on-arrow-down-x2.png') url('/images/on-arrow-up-x2.png') url('/images/on-btn-undo-x2.png') url('/images/on-btn-undo-all-x2.png'); }
+  body:after { display: none; content: url('/images/on-btn-undo-x2.png') url('/images/on-btn-undo-all-x2.png'); }
   body { font-size: 62.5%; }
   p span { font-size: 1.3em; margin: 0em -0.15em 0em 0em; }
   #input h1, #output h1 { letter-spacing: 0.02em; }
-  #input-pad p { background: url('/images/arrow-up.png') 50% 10% no-repeat, url('/images/arrow-down.png') 50% 90% no-repeat; }
+  #input-pad p { background: url('/images/arrow-up.png') 50% 10% no-repeat; }
+  /*
   #input-pad .up { background: url('/images/on-arrow-up.png') 50% 10% no-repeat, url('/images/arrow-down.png') 50% 90% no-repeat; }
   #input-pad .down { background: url('/images/arrow-up.png') 50% 10% no-repeat, url('/images/on-arrow-down.png') 50% 90% no-repeat; }
+  */
 
   #undo-nav #undo { background: url('/images/btn-undo.png') 50% 30% no-repeat; }
   #undo-nav #undo-all { background: url('/images/btn-undo-all.png') 50% 30% no-repeat; }
-  #input-pad #undo.up, #input-pad #undo.down { background: url('/images/on-btn-undo.png') 50% 30% no-repeat; }
-  #input-pad #undo-all.up, #input-pad #undo-all.down { background: url('/images/on-btn-undo-all.png') 50% 30% no-repeat; }
+  #input-pad #undo.active { background: url('/images/on-btn-undo.png') 50% 30% no-repeat; }
+  #input-pad #undo-all.active { background: url('/images/on-btn-undo-all.png') 50% 30% no-repeat; }
 }
