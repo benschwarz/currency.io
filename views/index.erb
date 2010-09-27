@@ -1,42 +1,36 @@
 <div id="wrapper">
-  
-  <div id="currencies">
-    <nav>
-      <ul>
-        <li><a href="#" id="save-currencies">Save</a></li>
-      </ul>
-    </nav>
-    <ul id="from-currency"></ul>
-    <ul id="to-currency"></ul>
+
+  <p id="network-status" class="offline">Offline</p>
+  <button id="change-currencies">Change currencies</button>
+
+  <section id="rates">
+    <em>¥1</em>
+    JPY
+    <span>→</span>
+    AUD
+    <em>$1.27</em>
+  </section>
+
+  <section id="input">
+    <h2><em>$</em> Australian Dollars</h2>
+    <h1>0</h1>
+  </section>
+  <section id="output">
+    <h2><em>¥</em> Japanese Yen</h2>
+    <h1>0</h1>
+  </section>
+
+  <div id="input-pad">
+    <p>0</p>                <p>1</p>  <p>2</p>  <p>3</p>
+
+    <p>.</p>                <p>4</p>  <p>5</p>  <p>6</p>
+
+    <p id="clear">Clear</p>  <p>7</p>  <p>8</p>  <p>9</p>
+
   </div>
-  
-  <p id="network-status" class="online">Online</p>
-  
-  <section id="rates"></section>
 
-  <section id="from">
-    <h1>0</h1>
-    <h2></h2>
-  </section>
-  <section id="to">
-    <h1>0</h1>
-    <h2></h2>
-  </section>
+  <div id="currency-selection">
+    <ul></ul>
+  </div>
 
-  <small>Synced: <strong>1 hour ago</strong></small>
-
-  <section id="numpad">
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>5</p>
-    <p>6</p>
-    <p>7</p>
-    <p>8</p>
-    <p>9</p>
-    <p>.</p>
-    <p>0</p>
-    <p>&larr;</p>
-  </section>
 </div>
