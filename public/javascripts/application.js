@@ -48,10 +48,46 @@ var $ = function(q, e) {
   return match.length > 1 ? match : match[0];
 }
 
+var Converter = {
+  update_currency_display: function() {
+    var from_id = window.from_to.from,
+        to_id = window.from_to.to,
+        from = window.currencies[from_id],
+        to = window.currencies[to_id];
+
+    Calculator.rate = from.rate_usd * (1 / to.rate_usd);
+  },
+
+  update_currencies: function() {
+    var currencies = [];
+    for (var currency in window.currencies) {
+      if(!window.currencies.hasOwnProperty(currency)) continue;
+      currencies.push(currency);
+    }
+
+    var r = new XMLHttpRequest();
+    r.open('POST', '/exchange?currencies='+currencies.toString(), true);
+    r.send(null);
+
+    r.onreadystatechange = function() {
+      if(r.readyState===4) {
+        var data = JSON.parse(request.responseText);
+
+        for(var key in data) {
+          window.currencies[key].rate_usd = data[key];
+        }
+
+        localStorage.currencies = JSON.stringify(window.currencies);
+        Converter.update_currency_display();
+      }
+    }
+  }
+}
+
 var Calculator = {
   input: $('#input h1'),
   output: $('#output h1'),
-  rate: 12.136,
+  rate: 0,
 
   add: function(value) {
     var old = this.input.innerText !== '0' ? this.strip_commas(this.input.innerText) : '';
@@ -103,3 +139,5 @@ for (var i = 0, ii = buttons.length; i < ii; i++) {
 $('#clear').touch(function(e) {
   Calculator.clear();
 });
+
+Converter.update_currencies();
