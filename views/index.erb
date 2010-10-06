@@ -1,29 +1,45 @@
 <div id="wrapper">
 
   <p id="network-status" class="offline">Offline</p>
-  <button id="change-currencies">Change currencies</button>
 
   <section id="rates">
-    <em>¥1</em>
-    JPY
-    <span>→</span>
-    AUD
-    <em>$1.27</em>
+    <button>Change</button> JPY <span>&rarr;</span> AUD
+  </section>
+
+  <section id="rate-selection">
+    <button>Save</button>
+    <ul id="from">
+      <li><a href="#" id="from-AUD">AUD</a></li>
+      <li><a href="#" id="from-JPY">JPY</a></li>
+      <li><a href="#" id="from-CHF">CHF</a></li>
+      <li><a href="#" id="from-SGD">SGD</a></li>
+      <li><a href="#" id="from-EUR">EUR</a></li>
+      <li><a href="#" id="from-USD">USD</a></li>
+    </ul>
+    <span>&darr;</span>
+    <ul id="to">
+      <li><a href="#" id="to-AUD">AUD</a></li>
+      <li><a href="#" id="to-JPY">JPY</a></li>
+      <li><a href="#" id="to-CHF">CHF</a></li>
+      <li><a href="#" id="to-SGD">SGD</a></li>
+      <li><a href="#" id="to-EUR">EUR</a></li>
+      <li><a href="#" id="to-USD">USD</a></li>
+    </ul>
   </section>
 
   <section id="input">
-    <h2><em>$</em> Australian Dollars</h2>
     <h1>0</h1>
+    <h2><em>$</em> Australian Dollars</h2>
   </section>
   <section id="output">
-    <h2><em>¥</em> Japanese Yen</h2>
     <h1>0</h1>
+    <h2><em>¥</em> Japanese Yen</h2>
   </section>
 
   <div id="input-pad">
-    <p>0</p>                <p>1</p>  <p>2</p>  <p>3</p>
+    <p>0</p>                 <p>1</p>  <p>2</p>  <p>3</p>
 
-    <p>.</p>                <p>4</p>  <p>5</p>  <p>6</p>
+    <p>.</p>                 <p>4</p>  <p>5</p>  <p>6</p>
 
     <p id="clear">Clear</p>  <p>7</p>  <p>8</p>  <p>9</p>
 

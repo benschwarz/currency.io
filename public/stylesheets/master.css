@@ -23,19 +23,24 @@ div#wrapper { width: 31.9em; margin: 0em; overflow: hidden; position: relative; 
 .online:before { content: '\2713\0020'; color: green; font-weight: bold; }
 .offline:before { content: '\2715\0020'; color: red; font-weight: bold; }
 
-button { margin: 1.5em 0em 1em; }
+#rates { font-size: 1.5em; margin: 0.75em 0em; }
+#rates span { font-size: 0.9em; color: #aaa; margin: -0.1em 0.1em 0em; }
+button { font-size: 0.6em; background: #f3f3f3; color: #bbb; padding: 2px 6px; position: relative; top: -0.3em; border-radius: 4px; }
 
-#rates { color: #999; font-size: 1.5em; margin: 0.75em 0em 0em 0em; }
-#rates em { color: #ccc; font-size: 0.8em; margin: 0em 0.6em; }
-#rates span { font-size: 0.9em; margin: -0.1em 0.1em 0em; }
+#rate-selection { display: none; margin: 10px 0px 0px; padding: 6px 0px; background: #eee; text-align: center; }
+#rate-selection button { font-size: 1em; }
+#rate-selection ul { list-style: none; margin: 0px; padding: 8px 4px; display: block; }
+#rate-selection ul li { display: inline; padding: 0px 6px; }
+#rate-selection ul a { color: #444; text-decoration: none; }
+#rate-selection span { display: block; color: #aaa; margin: 0px; }
 
-#input, #output { border-top: 1px solid #f3f3f3; margin: 0.7em 0em; padding: 0.7em 0.5em 0em 0em; position: relative; }
+#input, #output { border-top: 1px solid #f3f3f3; margin: 0em; padding: 0.7em 0.5em 1em 0em; position: relative; }
 #output { margin: 0em 0em 0.7em; }
-#input:before, #output:before { content: '→'; position: absolute; left: 0.5em; color: #999; top: 52%; font-weight: normal; }
+#input:before, #output:before { content: '→'; position: absolute; left: 1em; color: rgba(0, 0, 0, 0.5); top: 35%; font-weight: normal; text-shadow: none; }
 #output:before { content: '='; }
 
-#input h2, #output h2 { font-size: 0.9em; color: #999; line-height: 0.5; padding: 0.3em 0.2em 0em; }
-#input h1, #output h1 { font-size: 4.2em; letter-spacing: 0.02em; }
+#input h2, #output h2 { font-size: 0.9em; color: #999; line-height: 0.5; padding: 0.5em 0.2em 0em; }
+#input h1, #output h1 { font-size: 4.3em; letter-spacing: 0.02em; }
 #input h2 em, #output h2 em { color: #ccc; left: -0.3em; }
 
 /*
