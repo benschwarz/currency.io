@@ -17,7 +17,7 @@ Object.prototype.touch = function(func) {
     this.addEventListener('touchstart', function(e){
       e.preventDefault();
 
-      if(!e.touches || e.touches.length > 1) return;
+      if (!e.touches || e.touches.length > 1) return;
 
       this.className = 'active';
       this.addEventListener('touchmove', moving = function(e){}, false);
@@ -30,7 +30,7 @@ Object.prototype.touch = function(func) {
       this.className = '';
       this.removeEventListener('touchmove', moving);
 
-      if(func) func.apply(this, [e]);
+      if (func) func.apply(this, [e]);
 
     }, false);
 
@@ -61,7 +61,7 @@ var Converter = {
   update_currencies: function() {
     var currencies = [];
     for (var currency in window.currencies) {
-      if(!window.currencies.hasOwnProperty(currency)) continue;
+      if (!window.currencies.hasOwnProperty(currency)) continue;
       currencies.push(currency);
     }
 
@@ -98,7 +98,7 @@ var Calculator = {
     var value = this.strip_commas(value),
         output_value = (value * this.rate).toFixed();
 
-    if(!value) value = 0;
+    if (!value) value = 0;
 
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
@@ -132,7 +132,7 @@ var Calculator = {
 
 var buttons = $('#input-pad p');
 for (var i = 0, ii = buttons.length; i < ii; i++) {
-  if(!!buttons[i].id.length) continue;
+  if (!!buttons[i].id.length) continue;
   buttons[i].touch(function() { Calculator.add(this.innerText); });
 }
 
