@@ -43,11 +43,26 @@ var $ = function(q, e) {
 }
 
 var Converter = {
-  update_currency_display: function() {
-    var from_id = window.from_to.from,
-        to_id = window.from_to.to,
+  highlight_currencies: function(from_id, to_id) {
+
+    window.from_to.from = from_id;
+    window.from_to.to = to_id;
+    localStorage.from_to = JSON.stringify(window.from_to);
+
+    for (var i = 0, ii = rates.length; i < ii; i++) {
+      rates[i].className = '';
+    }
+    $('#from-'+from_id).className = 'selected';
+    $('#to-'+to_id).className = 'selected';
+  },
+
+  update_currency_display: function(from_id, to_id) {
+    var from_id = from_id || window.from_to.from,
+        to_id = to_id || window.from_to.to,
         from = window.currencies[from_id],
         to = window.currencies[to_id];
+
+    this.highlight_currencies(from_id, to_id)
 
     Calculator.rate = from.rate_usd * (1 / to.rate_usd);
 
@@ -154,12 +169,7 @@ $('#change').touch(function(e) {
 
 $('#flip').touch(function(e) {
   var last = { from: window.from_to['from'], to: window.from_to['to'] }
-
-  window.from_to.from = last.to;
-  window.from_to.to = last.from;
-  localStorage.from_to = JSON.stringify(window.from_to);
-
-  Converter.update_currency_display();
+  Converter.update_currency_display(last.to, last.from);
 })
 
 $('#save').touch(function(e) {
@@ -174,15 +184,9 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
     e.preventDefault();
 
     var ref = this.id.split('-');
-    window.from_to[ref[0]] = ref[1];
-    localStorage.from_to = JSON.stringify(window.from_to);
+    args = ref[0] == 'from' ? [ref[1], null] : [null, ref[1]];
 
-    Converter.update_currency_display();
-
-    for (var i = 0, ii = rates.length; i < ii; i++) {
-      if((new RegExp(ref[0])).test(rates[i].id)) rates[i].className = '';
-    }
-    this.className = 'selected';
+    Converter.update_currency_display.apply(Converter, args);
   });
 }
 
