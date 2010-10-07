@@ -147,4 +147,5 @@ $('#clear').touch(function(e) {
   Calculator.clear();
 });
 
+Converter.update_currency_display();
 Converter.update_currencies();
