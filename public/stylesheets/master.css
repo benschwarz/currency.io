@@ -24,8 +24,8 @@ div#wrapper { width: 31.9em; margin: 0em; overflow: hidden; position: relative; 
 .offline:before { content: '\2715\0020'; color: red; font-weight: bold; }
 
 #rates { font-size: 1.5em; margin: 0.75em 0em; text-align: center; }
-#rates span { font-size: 0.9em; color: #aaa; margin: -0.1em 0.1em 0em; }
-button { font-size: 0.6em; min-width: 5em; background: #f3f3f3; color: #bbb; padding: 0.3em 0.8em; position: relative; top: -0.3em; border-radius: 4px; cursor: pointer; }
+#rates em { font-size: 0.9em; color: #aaa; margin: -0.1em 0.1em 0em; }
+button { font-size: 0.6em; min-width: 5em; background: #f3f3f3; color: #bbb; padding: 0.3em 0.8em; position: relative; top: -0.3em; border-radius: 4px; }
 
 #input, #output { border-top: 1px solid #f3f3f3; margin: 0em; padding: 0.7em 0.5em 1em 0em; position: relative; }
 #output { margin: 0em 0em 0.7em; }

@@ -54,8 +54,8 @@ var Converter = {
     $("#input h2").innerHTML = '<em>'+from.symbol+'</em> '+from.name;
     $("#output h2").innerHTML = '<em>'+to.symbol+'</em> '+to.name;
 
-    html = '<button id="change">Change</button> '+from_id+' <span>&rarr;</span> '+to_id+' <button id="flip">Flip</button>';
-    $('#rates').innerHTML = html;
+    html = from_id+' <em>&rarr;</em> '+to_id;
+    $('#rates span').innerHTML = html;
 
     Calculator.add('');
   },
@@ -146,37 +146,26 @@ $('#clear').touch(function(e) {
   Calculator.clear();
 });
 
-$('#rates').touch(function(e) {
-  var target = e.target;
-
-  if (target.id == 'change') {
-    e.stopPropagation();
-    $('#rate-selection').style.display = 'block';
-    $('#change').style.display = 'none';
-    $('#flip').style.display = 'none';
-  }
-  if (target.id == 'flip') {
-    e.stopPropagation();
-    var last = { from: window.from_to['from'], to: window.from_to['to'] }
-
-    window.from_to.from = last.to;
-    window.from_to.to = last.from;
-    localStorage.from_to = JSON.stringify(window.from_to);
-
-    Converter.update_currency_display();
-  }
-
+$('#change').touch(function(e) {
+  $('#rate-selection').style.display = 'block';
+  $('#change').style.display = 'none';
+  $('#flip').style.display = 'none';
 });
 
-$('#rate-selection').touch(function(e) {
-  var target = e.target;
+$('#flip').touch(function(e) {
+  var last = { from: window.from_to['from'], to: window.from_to['to'] }
 
-  if (target.id == 'save') {
-    e.stopPropagation();
-    $('#rate-selection').style.display = 'none';
-    $('#change').style.display = 'inline';
-    $('#flip').style.display = 'inline';
-  }
+  window.from_to.from = last.to;
+  window.from_to.to = last.from;
+  localStorage.from_to = JSON.stringify(window.from_to);
+
+  Converter.update_currency_display();
+})
+
+$('#save').touch(function(e) {
+  $('#rate-selection').style.display = 'none';
+  $('#change').style.display = 'inline';
+  $('#flip').style.display = 'inline';
 });
 
 var rates = $('#rate-selection a');
