@@ -170,6 +170,17 @@ $('#rate-selection').touch(function(e) {
   }
 });
 
+var rates = $('#rate-selection a');
+for (var i = 0, ii = rates.length; i < ii; i++) {
+  rates[i].touch(function() {
+    var ref = this.id.split('-');
+    window.from_to[ref[0]] = ref[1];
+    localStorage.from_to = JSON.stringify(window.from_to);
+
+    Converter.update_currency_display();
+  });
+}
+
 if(!navigator.onLine) $('#network-status').className = 'offline';
 
 Converter.update_currency_display();
