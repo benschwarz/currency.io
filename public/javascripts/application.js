@@ -13,7 +13,6 @@ Object.prototype.touch = function(func) {
       target;
 
   if (window.Touch){
-
     this.addEventListener('touchstart', function(e){
       e.preventDefault();
 
@@ -21,7 +20,6 @@ Object.prototype.touch = function(func) {
 
       this.className = 'active';
       this.addEventListener('touchmove', moving = function(e){}, false);
-
     }, false);
 
     this.addEventListener('touchend', function(e){
@@ -31,13 +29,9 @@ Object.prototype.touch = function(func) {
       this.removeEventListener('touchmove', moving);
 
       if (func) func.apply(this, [e]);
-
     }, false);
-
   } else {
-
     this.addEventListener('click', func);
-
   }
 
 }
@@ -60,7 +54,7 @@ var Converter = {
     $("#input h2").innerHTML = '<em>'+from.symbol+'</em> '+from.name;
     $("#output h2").innerHTML = '<em>'+to.symbol+'</em> '+to.name;
 
-    html = '<button id="change">Change</button> '+from_id+' <span>&rarr;</span> '+to_id;
+    html = '<button id="change">Change</button> '+from_id+' <span>&rarr;</span> '+to_id+' <button id="flip">Flip</button>';
     $('#rates').innerHTML = html;
 
     Calculator.add('');
@@ -159,6 +153,17 @@ $('#rates').touch(function(e) {
     e.stopPropagation();
     $('#rate-selection').style.display = 'block';
   }
+  if (target.id == 'flip') {
+    e.stopPropagation();
+    var last = { from: window.from_to['from'], to: window.from_to['to'] }
+
+    window.from_to.from = last.to;
+    window.from_to.to = last.from;
+    localStorage.from_to = JSON.stringify(window.from_to);
+
+    Converter.update_currency_display();
+  }
+
 });
 
 $('#rate-selection').touch(function(e) {
