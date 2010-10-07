@@ -152,5 +152,7 @@ $('#clear').touch(function(e) {
   Calculator.clear();
 });
 
+if(!navigator.onLine) $('#network-status').className = 'offline';
+
 Converter.update_currency_display();
 Converter.update_currencies();
