@@ -1,3 +1,7 @@
+String.prototype.count = function(str) {
+  return this.split(str).length
+}
+
 var currencies = JSON.stringify({
   EUR: { name: "Euro", symbol: "€", rate_usd: 1 },
   GBP: { name: "British Pound", symbol: "£", rate_usd: 1 },
@@ -10,7 +14,8 @@ var currencies = JSON.stringify({
   NZD: { name: "New Zealand Dollars", symbol: "$", rate_usd: 1 }
 });
 
-if (!localStorage.currencies || localStorage.currencies.length !== currencies.length) {
+if (!localStorage.currencies || localStorage.currencies.count(':') !== currencies.count(':')) {
+  console.warn('refreshed currencies');
   localStorage.currencies = currencies;
   localStorage.from_to = '{ "from": "JPY", "to": "AUD" }';
 }
