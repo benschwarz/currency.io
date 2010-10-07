@@ -1,16 +1,8 @@
-/*
 
-    TODO:
-    - Add support for decimal places (up to 2)
-    - Last synced
-
-*/
 Object.prototype.touch = function(func) {
 
-  var up,
-      func,
-      moving,
-      target;
+  var func,
+      moving;
 
   if (window.Touch){
     this.addEventListener('touchstart', function(e){
@@ -190,7 +182,7 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
   });
 }
 
-if(!navigator.onLine) $('#network-status').className = 'offline';
+if (!navigator.onLine) $('#network-status').className = 'offline';
 
 Converter.update_currency_display();
 setTimeout(function() { Converter.update_currencies() }, 800);
