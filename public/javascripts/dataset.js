@@ -6,6 +6,7 @@ var currencies = JSON.stringify({
   EUR: { name: "Euro", symbol: "€", rate_usd: 1 },
   GBP: { name: "British Pound", symbol: "£", rate_usd: 1 },
   JPY: { name: "Japanese Yen", symbol: "¥", rate_usd: 1 },
+  USD: { name: "US Dollars", symbol: "$", rate_usd: 1 },
   CHF: { name: "Swiss Francs", symbol: "chf", rate_usd: 1 },
   CAD: { name: "Canadian Dollars", symbol: "$", rate_usd: 1 },
   AUD: { name: "Australian Dollars", symbol: "$", rate_usd: 1 },
