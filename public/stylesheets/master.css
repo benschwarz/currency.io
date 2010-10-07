@@ -29,11 +29,11 @@ button { font-size: 0.6em; min-width: 5em; background: #f3f3f3; color: #bbb; pad
 
 #input, #output { border-top: 1px solid #f3f3f3; margin: 0em; padding: 0.7em 0.5em 1em 0em; position: relative; }
 #output { margin: 0em 0em 0.7em; }
-#input:before, #output:before { content: '→'; position: absolute; left: 1em; color: rgba(0, 0, 0, 0.5); top: 35%; font-weight: normal; }
+#input:before, #output:before { content: '→'; position: absolute; left: 1em; color: rgba(0, 0, 0, 0.5); top: 55%; font-weight: normal; }
 #output:before { content: '='; }
 
-#input h2, #output h2 { font-size: 0.9em; color: #999; line-height: 0.5; padding: 0.5em 0.2em 0em; }
-#input h1, #output h1 { font-size: 4.3em; letter-spacing: 0.02em; }
+#input h2, #output h2 { font-size: 0.9em; color: #999; line-height: 0.5; padding: 0em 0.2em 0em; }
+#input h1, #output h1 { font-size: 4.3em; padding: 0.4em 0em 0em; letter-spacing: 0.02em; }
 #input h2 em, #output h2 em { color: #ccc; left: -0.3em; }
 
 /*
