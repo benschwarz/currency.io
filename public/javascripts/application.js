@@ -73,6 +73,8 @@ var Converter = {
       currencies.push(currency);
     }
 
+    if (!navigator.onLine) return;
+
     var r = new XMLHttpRequest();
     r.open('POST', '/exchange?currencies='+currencies.toString(), true);
     r.send(null);
