@@ -109,6 +109,7 @@ var Calculator = {
     var value = this.strip_commas(value),
         output_value = (value * this.rate).toFixed();
 
+    if (value.length > 11 || output_value.length > 11) return;
     if (!value) value = 0;
 
     this.input.innerHTML = this.add_commas(value);
