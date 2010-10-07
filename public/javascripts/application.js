@@ -56,6 +56,12 @@ var Converter = {
         to = window.currencies[to_id];
 
     Calculator.rate = from.rate_usd * (1 / to.rate_usd);
+
+    $("#input h2").innerHTML = '<em>'+from.symbol+'</em> '+from.name;
+    $("#output h2").innerHTML = '<em>'+to.symbol+'</em> '+to.name;
+
+    html = '<button id="change">Change</button> '+from_id+' <span>&rarr;</span> '+to_id;
+    $('#rates').innerHTML = html;
   },
 
   update_currencies: function() {
