@@ -101,7 +101,7 @@ var Calculator = {
 
   update_values: function(value) {
     var value = this.strip_commas(value),
-        output_value = (value * this.rate).toFixed();
+        output_value = (value * this.rate).toFixed(2);
 
     if (value.length > 11 || output_value.length > 11) return;
     if (!value) value = 0;
