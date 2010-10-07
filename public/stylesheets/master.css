@@ -46,7 +46,6 @@ button { font-size: 0.6em; min-width: 5em; background: #f3f3f3; color: #bbb; pad
 #input-pad p { float: left; width: 22%; padding: 0.7em 0em; margin: 1.2% 0%; font-size: 2.4em; cursor: pointer; text-align: center; }
 
 #input-pad #clear { background: url('/images/btn-clear-x2.png') 50% 0% no-repeat; font-size: 1.4em; padding-top: 2.45em; }
-#input-pad #clear.active { background: url('/images/on-btn-clear-x2.png') 50% 0% no-repeat; }
 
 /*
 
@@ -60,7 +59,7 @@ button { font-size: 0.6em; min-width: 5em; background: #f3f3f3; color: #bbb; pad
 #rate-selection button { display: inline; background: #04D7C3; color: #fff; font-size: 0.7em; margin: 0.6em 0em 0em; }
 
 #rate-selection ul { display: block; clear: both; list-style: none; margin: 0.5em 0em 0em 7.5%; padding: 0em; position: relative; left: -3%; }
-#rate-selection li { position: relative; display: block; border-top: 0.1em solid #ddd; padding: 0.6em 0em; }
+#rate-selection li { position: relative; display: block; border-top: 0.1em solid #ddd; padding: 0.55em 0em; }
 #rate-selection a { position: absolute; width: 50%; text-decoration: none; padding: 0.6em 0em; margin: -0.6em 0em 0em; }
 #rate-selection a:last-child { left: 50%; }
 #rate-selection em { color: #aaa; }
@@ -77,12 +76,10 @@ button { font-size: 0.6em; min-width: 5em; background: #f3f3f3; color: #bbb; pad
 */
 
 @media only screen and (max-device-width: 480px) {
-  body:after { display: none; content: url('/images/on-btn-clear-x2.png') url('/images/on-btn-clear-all-x2.png'); }
   body { font-size: 62.5%; }
   p span { font-size: 1.3em; margin: 0em -0.15em 0em 0em; }
   #input h1, #output h1 { letter-spacing: 0.02em; }
 
   #rate-selection a { background-size: 10px 10px; }
   #input-pad #clear { background: url('/images/btn-clear-x2.png') 50% 30% no-repeat; background-size: 30px 30px; }
-  #input-pad #clear.active { background: url('/images/on-btn-clear-x2.png') 50% 30% no-repeat; background-size: 30px 30px; }
 }
