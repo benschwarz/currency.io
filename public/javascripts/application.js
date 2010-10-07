@@ -119,7 +119,7 @@ var Calculator = {
 
   add_commas: function(num) {
     var re = /(\d+)(\d{3,3})/,
-        split = num.split('.'),
+        split = (''+num).split('.'),
         num = split[0],
         decimals = split[1] !== undefined ? '.'+split[1] : '';
 
