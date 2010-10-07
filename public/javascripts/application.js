@@ -1,6 +1,5 @@
 
 Object.prototype.touch = function(func) {
-
   var func,
       moving;
 
@@ -110,6 +109,7 @@ var Converter = {
         }
       }
     }
+
   }
 }
 
@@ -197,7 +197,6 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
 
     var ref = this.id.split('-');
     args = ref[0] == 'from' ? [ref[1], null] : [null, ref[1]];
-
     Converter.update_currency_display.apply(Converter, args);
   });
 }
