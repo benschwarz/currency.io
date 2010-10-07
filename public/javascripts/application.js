@@ -152,6 +152,8 @@ $('#rates').touch(function(e) {
   if (target.id == 'change') {
     e.stopPropagation();
     $('#rate-selection').style.display = 'block';
+    $('#change').style.display = 'none';
+    $('#flip').style.display = 'none';
   }
   if (target.id == 'flip') {
     e.stopPropagation();
@@ -169,9 +171,11 @@ $('#rates').touch(function(e) {
 $('#rate-selection').touch(function(e) {
   var target = e.target;
 
-  if (target.id == 'close') {
+  if (target.id == 'save') {
     e.stopPropagation();
     $('#rate-selection').style.display = 'none';
+    $('#change').style.display = 'inline';
+    $('#flip').style.display = 'inline';
   }
 });
 
@@ -181,6 +185,10 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
     var ref = this.id.split('-');
     window.from_to[ref[0]] = ref[1];
     localStorage.from_to = JSON.stringify(window.from_to);
+    for (var i = 0, ii = rates.length; i < ii; i++) {
+      if((new RegExp(ref[0])).test(rates[i].id)) rates[i].className = '';
+    }
+    this.className = 'selected';
 
     Converter.update_currency_display();
   });
