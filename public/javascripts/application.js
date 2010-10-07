@@ -35,8 +35,25 @@ var $ = function(q, e) {
 }
 
 var Converter = {
-  highlight_currencies: function(from_id, to_id) {
 
+  draw_currencies: function() {
+    var html = '',
+        currencies = window.currencies;
+
+    for (var id in currencies) {
+      if(!window.currencies.hasOwnProperty(id)) continue;
+
+      html += '<li>';
+      html += '<a href="#" id="from-'+id+'">&nbsp;</a>';
+      html += '<em>'+currencies[id].symbol+'</em> '+id+' <em>('+currencies[id].name+')</em>';
+      html += '<a href="#" id="to-'+id+'">&nbsp;</a>';
+      html += '</li>';
+    }
+
+    $('#rate-selection ul').innerHTML = html;
+  },
+
+  highlight_currencies: function(from_id, to_id) {
     window.from_to.from = from_id;
     window.from_to.to = to_id;
     localStorage.from_to = JSON.stringify(window.from_to);
@@ -169,6 +186,8 @@ $('#save').touch(function(e) {
   $('#change').style.display = 'inline';
   $('#flip').style.display = 'inline';
 });
+
+Converter.draw_currencies();
 
 var rates = $('#rate-selection a');
 for (var i = 0, ii = rates.length; i < ii; i++) {
