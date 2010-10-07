@@ -76,15 +76,16 @@ var Converter = {
     r.send(null);
 
     r.onreadystatechange = function() {
-      if(r.readyState===4) {
-        var data = JSON.parse(request.responseText);
+      if (r.readyState === 4) {
+        if (this.status == 200) {
+          var data = JSON.parse(r.responseText);
+          for (var key in data) window.currencies[key].rate_usd = data[key];
 
-        for(var key in data) {
-          window.currencies[key].rate_usd = data[key];
+          localStorage.currencies = JSON.stringify(window.currencies);
+          Converter.update_currency_display();
+        } else {
+          console.error('Request failed.');
         }
-
-        localStorage.currencies = JSON.stringify(window.currencies);
-        Converter.update_currency_display();
       }
     }
   }
