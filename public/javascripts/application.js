@@ -85,13 +85,13 @@ var Converter = {
   },
 
   update_currencies: function() {
+    if (!navigator.onLine) return;
+
     var currencies = [];
     for (var currency in window.currencies) {
       if (!window.currencies.hasOwnProperty(currency)) continue;
       currencies.push(currency);
     }
-
-    if (!navigator.onLine) return;
 
     var r = new XMLHttpRequest();
     r.open('POST', '/exchange?currencies='+currencies.toString(), true);
