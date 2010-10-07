@@ -62,6 +62,8 @@ var Converter = {
 
     html = '<button id="change">Change</button> '+from_id+' <span>&rarr;</span> '+to_id;
     $('#rates').innerHTML = html;
+
+    Calculator.add('');
   },
 
   update_currencies: function() {
