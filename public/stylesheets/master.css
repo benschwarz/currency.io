@@ -25,7 +25,7 @@ div#wrapper { width: 31.9em; margin: 0em; overflow: hidden; position: relative; 
 
 #rates { font-size: 1.5em; margin: 0.75em 0em; }
 #rates span { font-size: 0.9em; color: #aaa; margin: -0.1em 0.1em 0em; }
-button { font-size: 0.6em; background: #f3f3f3; color: #bbb; padding: 2px 6px; position: relative; top: -0.3em; border-radius: 4px; }
+button { font-size: 0.6em; background: #f3f3f3; color: #bbb; padding: 2px 6px; position: relative; top: -0.3em; border-radius: 4px; cursor: pointer; }
 
 #rate-selection { display: none; margin: 10px 0px 0px; padding: 6px 0px; background: #eee; text-align: center; }
 #rate-selection button { font-size: 1em; }
