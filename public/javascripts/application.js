@@ -185,4 +185,4 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
 if (!navigator.onLine) $('#network-status').className = 'offline';
 
 Converter.update_currency_display();
-setTimeout(function() { Converter.update_currencies() }, 800);
+setTimeout(function() { Converter.update_currencies() }, 100);
