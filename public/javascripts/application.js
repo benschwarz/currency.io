@@ -170,16 +170,19 @@ $('#save').touch(function(e) {
 
 var rates = $('#rate-selection a');
 for (var i = 0, ii = rates.length; i < ii; i++) {
-  rates[i].touch(function() {
+  rates[i].touch(function(e) {
+    e.preventDefault();
+
     var ref = this.id.split('-');
     window.from_to[ref[0]] = ref[1];
     localStorage.from_to = JSON.stringify(window.from_to);
+
+    Converter.update_currency_display();
+
     for (var i = 0, ii = rates.length; i < ii; i++) {
       if((new RegExp(ref[0])).test(rates[i].id)) rates[i].className = '';
     }
     this.className = 'selected';
-
-    Converter.update_currency_display();
   });
 }
 
