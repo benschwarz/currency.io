@@ -152,6 +152,24 @@ $('#clear').touch(function(e) {
   Calculator.clear();
 });
 
+$('#rates').touch(function(e) {
+  var target = e.target;
+
+  if (target.id == 'change') {
+    e.stopPropagation();
+    $('#rate-selection').style.display = 'block';
+  }
+});
+
+$('#rate-selection').touch(function(e) {
+  var target = e.target;
+
+  if (target.id == 'close') {
+    e.stopPropagation();
+    $('#rate-selection').style.display = 'none';
+  }
+});
+
 if(!navigator.onLine) $('#network-status').className = 'offline';
 
 Converter.update_currency_display();
