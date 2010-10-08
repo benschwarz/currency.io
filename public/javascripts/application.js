@@ -40,7 +40,7 @@ var Converter = {
         currencies = window.currencies;
 
     for (var id in currencies) {
-      if(!window.currencies.hasOwnProperty(id)) continue;
+      if (!window.currencies.hasOwnProperty(id)) continue;
 
       html += '<li>';
       html += '<a href="#" id="from-'+id+'">&nbsp;</a>';
@@ -128,7 +128,8 @@ var Calculator = {
         output_value = (value * this.rate).toFixed(2);
 
     if (!value) value = 0;
-    if (!(/\./).test(value) && value.length > 5) output_value = output_value.slice(0, -3)
+    if (!(/\./).test(value) && (value.length > 5 || output_value.length > 6))
+      output_value = output_value.slice(0, -3);
     if (value.length > 11 || output_value.length > 11) return;
 
     this.input.innerHTML = this.add_commas(value);
