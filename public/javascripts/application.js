@@ -130,7 +130,7 @@ var Calculator = {
     if (!value) value = 0;
     if (!(/\./).test(value) && (value.length > 5 || output_value.length > 6))
       output_value = output_value.slice(0, -3);
-    if (value.length > 11 || output_value.length > 11) return;
+    if (value.length > 10 || output_value.length > 10) return;
 
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
