@@ -19,7 +19,7 @@ div#wrapper { width: 31.9em; margin: 0em; overflow: hidden; position: relative; 
 
 */
 
-#network-status { position: absolute; left: 4px; text-align: center; padding: 1em 0em 1em; margin: 0em; font-weight: normal; font-size: 0.9em; color: #888; }
+#network-status { position: absolute; left: 4px; text-align: center; padding: 1em 0em 1em; margin: 0.65em 0em 0em; font-weight: normal; font-size: 0.9em; color: #888; }
 .online:before { content: '\2713\0020'; color: green; font-weight: bold; }
 .offline:before { content: '\2715\0020'; color: red; font-weight: bold; }
 
