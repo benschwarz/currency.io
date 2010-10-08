@@ -22,7 +22,7 @@ post '/exchange' do
   JSON.generate currencies
 end
 
-#get '/offline.manifest' do
-  #content_type :manifest
-  #erb :"offline.manifest", :layout => false
-#end
+get '/offline.manifest' do
+  content_type :manifest
+  erb :"offline.manifest", :layout => false
+end
