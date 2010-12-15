@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'peach'
 require 'rack/client'
 require 'rack/cache'
