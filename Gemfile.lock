@@ -1,0 +1,39 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    configuration (1.2.0)
+    haml (3.0.24)
+    heroku (1.14.9)
+      json_pure (>= 1.2.0, < 1.5.0)
+      launchy (~> 0.3.2)
+      rest-client (>= 1.4.0, < 1.7.0)
+    json_pure (1.4.6)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
+    mime-types (1.16)
+    peach (0.4)
+    rack (1.2.1)
+    rack-cache (0.5.3)
+      rack (>= 0.4)
+    rack-client (0.3.1.pre.f)
+      rack (>= 1.0.0)
+    rake (0.8.7)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
+    sinatra (1.0)
+      rack (>= 1.0)
+    yajl-ruby (0.7.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  haml
+  heroku
+  peach
+  rack (= 1.2.1)
+  rack-cache
+  rack-client (= 0.3.1.pre.f)
+  sinatra (= 1.0)
+  yajl-ruby
