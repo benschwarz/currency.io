@@ -44,7 +44,7 @@ var Converter = {
 
       html += '<li>';
       html += '<a href="#" id="from-'+id+'">&nbsp;</a>';
-      html += '<em>'+currencies[id].symbol+'</em> '+id+' <em>('+currencies[id].name+')</em>';
+      html += '<em>'+currencies[id].symbol+'</em> '+currencies[id].name+' <em>('+id+')</em>';
       html += '<a href="#" id="to-'+id+'">&nbsp;</a>';
       html += '</li>';
     }
@@ -173,9 +173,7 @@ $('#clear').touch(function(e) {
 });
 
 $('#change').touch(function(e) {
-  $('#rate-selection').style.display = 'block';
-  $('#change').style.display = 'none';
-  $('#flip').style.display = 'none';
+  $('body').className = 'edit-rates';
 });
 
 $('#flip').touch(function(e) {
@@ -184,9 +182,7 @@ $('#flip').touch(function(e) {
 })
 
 $('#save').touch(function(e) {
-  $('#rate-selection').style.display = 'none';
-  $('#change').style.display = 'inline';
-  $('#flip').style.display = 'inline';
+  $('body').className = '';
 });
 
 Converter.draw_currencies();
