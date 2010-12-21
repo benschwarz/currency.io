@@ -14,7 +14,7 @@ Object.prototype.touch = function(func) {
     }, false);
 
     window.addEventListener('touchend', function(e){
-      target.className = target.className.replace(/\stouched/, '');
+      if (target) target.className = target.className.replace(/\stouched/, '');
     });
 
     this.addEventListener('touchend', function(e){
@@ -149,7 +149,7 @@ var Calculator = {
       output_value = output_value.slice(0, -3);
     if (value.length > 10 || output_value.length > 10) return;
 
-    if((/^\.$/).test(value)) output_value = '0.00';
+    if ((/^\.$/).test(value)) output_value = '0.00';
 
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
@@ -225,7 +225,7 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
 }
 
 var detectOrientation = function() {
-  if(window.orientation) addClass($('body'), 'credits');
+  if (window.orientation) addClass($('body'), 'credits');
   else removeClass($('body'), 'credits');
 }
 detectOrientation();
