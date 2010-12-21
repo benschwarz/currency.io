@@ -1,7 +1,6 @@
 
 Object.prototype.touch = function(func) {
-  var func,
-      moving;
+  var target, func, moving;
 
   if (window.Touch){
     this.addEventListener('touchstart', function(e){
@@ -9,16 +8,19 @@ Object.prototype.touch = function(func) {
 
       if (!e.touches || e.touches.length > 1) return;
 
-      this.className = 'active';
+      target = this;
+      this.className += ' touched';
       this.addEventListener('touchmove', moving = function(e){}, false);
     }, false);
+
+    window.addEventListener('touchend', function(e){
+      target.className = target.className.replace(/\stouched/, '');
+    });
 
     this.addEventListener('touchend', function(e){
       e.preventDefault();
 
-      this.className = '';
       this.removeEventListener('touchmove', moving);
-
       if (func) func.apply(this, [e]);
     }, false);
   } else {
@@ -172,7 +174,10 @@ $('#clear').touch(function(e) {
   Calculator.clear();
 });
 
-$('#change').touch(function(e) {
+$('#input').touch(function(e) {
+  $('body').className = 'edit-rates';
+});
+$('#output').touch(function(e) {
   $('body').className = 'edit-rates';
 });
 
