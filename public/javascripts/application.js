@@ -134,6 +134,8 @@ var Calculator = {
       output_value = output_value.slice(0, -3);
     if (value.length > 10 || output_value.length > 10) return;
 
+    if((/^\.$/).test(value)) output_value = '0.00';
+
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
   },
