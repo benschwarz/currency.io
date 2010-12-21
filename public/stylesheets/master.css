@@ -82,6 +82,16 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 .edit-rates #rate-selection { left: 0%; }
 .edit-rates #converter { left: 105%; }
 
+/*
+
+  Credits
+
+*/
+
+#credits { display: none; position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3; background: #fff url('/images/credits.png') 50% 50% no-repeat; }
+#credits img { visibility: hidden; display: block; width: 100%; height: 100%; }
+body.credits #credits { display: block; }
+
 
 /*
 

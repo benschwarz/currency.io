@@ -203,6 +203,13 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
   });
 }
 
+var detectOrientation = function() {
+  if(window.orientation) $('body').className = 'credits';
+  else $('body').className = '';
+}
+detectOrientation();
+window.addEventListener('orientationchange', detectOrientation);
+
 if (!navigator.onLine) $('#network-status').className = 'offline';
 
 Converter.update_currency_display();
