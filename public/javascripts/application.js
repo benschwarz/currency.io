@@ -1,7 +1,6 @@
 
 Object.prototype.touch = function(func) {
-  var func,
-      moving;
+  var target, func, moving;
 
   if (window.Touch){
     this.addEventListener('touchstart', function(e){
@@ -9,16 +8,19 @@ Object.prototype.touch = function(func) {
 
       if (!e.touches || e.touches.length > 1) return;
 
-      this.className = 'active';
+      target = this;
+      this.className += ' touched';
       this.addEventListener('touchmove', moving = function(e){}, false);
     }, false);
+
+    window.addEventListener('touchend', function(e){
+      target.className = target.className.replace(/\stouched/, '');
+    });
 
     this.addEventListener('touchend', function(e){
       e.preventDefault();
 
-      this.className = '';
       this.removeEventListener('touchmove', moving);
-
       if (func) func.apply(this, [e]);
     }, false);
   } else {
@@ -132,6 +134,8 @@ var Calculator = {
       output_value = output_value.slice(0, -3);
     if (value.length > 10 || output_value.length > 10) return;
 
+    if((/^\.$/).test(value)) output_value = '0.00';
+
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
   },
@@ -172,7 +176,10 @@ $('#clear').touch(function(e) {
   Calculator.clear();
 });
 
-$('#change').touch(function(e) {
+$('#input').touch(function(e) {
+  $('body').className = 'edit-rates';
+});
+$('#output').touch(function(e) {
   $('body').className = 'edit-rates';
 });
 
@@ -197,6 +204,13 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
     Converter.update_currency_display.apply(Converter, args);
   });
 }
+
+var detectOrientation = function() {
+  if(window.orientation) $('body').className = 'credits';
+  else $('body').className = '';
+}
+detectOrientation();
+window.addEventListener('orientationchange', detectOrientation);
 
 if (!navigator.onLine) $('#network-status').className = 'offline';
 
