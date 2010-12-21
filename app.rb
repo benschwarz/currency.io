@@ -17,8 +17,12 @@ YQL_BASE = "http://query.yahooapis.com/v1/public/yql"
 
 configure { mime_type :manifest, "text/cache-manifest" }
 
-get '/' do
+get '/', agent: /iPhone/ do
   erb :index
+end
+
+get '/' do
+  erb :marketing, layout: false
 end
 
 post '/exchange' do
@@ -39,5 +43,5 @@ end
 
 get '/offline.manifest' do
   content_type :manifest
-  erb :"offline.manifest", :layout => false
+  erb :"offline.manifest", layout: false
 end
