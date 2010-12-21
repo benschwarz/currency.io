@@ -29,6 +29,17 @@ Object.prototype.touch = function(func) {
 
 }
 
+var addClass = function(element, className) {
+  var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
+  if (re.test(element.className)) return;
+  element.className += ' ' + className;
+}
+
+var removeClass = function(element, className) {
+  var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
+  element.className = element.className.replace(re,' ');
+}
+
 var $ = function(q, e) {
   var e = e || document,
       match = e.querySelectorAll(q);
@@ -177,19 +188,23 @@ $('#clear').touch(function(e) {
 });
 
 $('#input').touch(function(e) {
-  $('body').className = 'edit-rates';
+  addClass($('body'), 'edit-rates');
 });
 $('#output').touch(function(e) {
-  $('body').className = 'edit-rates';
+  addClass($('body'), 'edit-rates');
 });
 
 $('#flip').touch(function(e) {
-  var last = { from: window.from_to['from'], to: window.from_to['to'] }
-  Converter.update_currency_display(last.to, last.from);
-})
+  addClass($('body'), 'flip');
+  setTimeout(function() {
+    var last = { from: window.from_to['from'], to: window.from_to['to'] }
+    Converter.update_currency_display(last.to, last.from);
+  }, 130);
+  setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
+});
 
 $('#save').touch(function(e) {
-  $('body').className = '';
+  removeClass($('body'), 'edit-rates');
 });
 
 Converter.draw_currencies();
@@ -206,8 +221,8 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
 }
 
 var detectOrientation = function() {
-  if(window.orientation) $('body').className = 'credits';
-  else $('body').className = '';
+  if(window.orientation) addClass($('body'), 'credits');
+  else removeClass($('body'), 'credits');
 }
 detectOrientation();
 window.addEventListener('orientationchange', detectOrientation);

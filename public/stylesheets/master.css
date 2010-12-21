@@ -38,8 +38,8 @@ div#wrapper { width: 31.9em; height: 48em; margin: 0em; overflow: hidden; positi
 #input h2 em, #output h2 em { color: #ccc; left: -0.3em; }
 
 button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; border-radius: 3px; font-weight: normal; }
-#flip, #save { padding: 0.6em; position: relative; top: -0.6em; left: -0.6em; cursor: pointer; }
-#flip { position: absolute; top: auto; margin: -2.5ex 0ex 0ex 1ex; z-index: 1; }
+#flip, #save { padding: 1em; position: relative; top: -1em; left: -1em; cursor: pointer; }
+#flip { position: absolute; top: auto; padding: 1.5em 1.3em; margin: -2.3em 0em 0em 0em; z-index: 1; }
 #flip button { text-transform: uppercase; letter-spacing: 0.1em; }
 #save button { display: inline; position: relative; top: 0.25em; color: #fff; font-size: 0.7em; margin: 0.8em 0em 0em; padding: 0.3em 1.4em; border-radius: 0.4em;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.2, #04D7a3), color-stop(0.5, #05CE99), color-stop(0.51, #04D7a3), color-stop(1, #04D7a3)); }
@@ -82,6 +82,10 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 .edit-rates #rate-selection { left: 0%; }
 .edit-rates #converter { left: 105%; }
 
+#wrapper { -webkit-perspective: 1000; }
+#flippable { -webkit-transition-duration: 300ms; -webkit-backface-visibility: hidden; }
+.flip #flippable { -webkit-transform: rotateX(180deg); }
+
 /*
 
   Credits
@@ -90,7 +94,7 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 
 #credits { display: none; position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3; background: #fff url('/images/credits.png') 50% 50% no-repeat; }
 #credits img { visibility: hidden; display: block; width: 100%; height: 100%; }
-body.credits #credits { display: block; }
+.credits #credits { display: block; }
 
 
 /*
