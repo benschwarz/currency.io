@@ -1,21 +1,21 @@
 require 'sinatra'
-require 'peach'
 require 'rack/client'
 require 'rack/cache'
-require 'json'
 require 'yajl'
+require 'json'
 
 HTTPClient = Rack::Client.new do
   use Rack::Cache,
     :metastore   => 'heap://',
     :entitystore => 'heap://'
-    
+  
+  use Rack::Client::Parser
   run Rack::Client::Handler::NetHTTP
 end
 
-configure do
-  mime_type :manifest, "text/cache-manifest"
-end
+YQL_BASE = "http://query.yahooapis.com/v1/public/yql"
+
+configure { mime_type :manifest, "text/cache-manifest" }
 
 get '/' do
   erb :index
@@ -24,14 +24,17 @@ end
 post '/exchange' do
   content_type :json
 
-  currencies = {}
-  params[:currencies].split(',').peach { |currency|
-    request = HTTPClient.get("http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20json%20where%20url%3D'http%3A%2F%2Fwww.google.com%2Fig%2Fcalculator%3Fq%3D#{currency}%2520USD'&format=json").body
-
-    currencies[currency] = ::Yajl::Parser.parse(request)['query']['results']['json']['rhs'].to_f
-  }
+  currencies = params[:currencies].split(',')
+  currency_list = currencies.inject("") {|o,c| o << "'" + c + "USD'," }[0...-1]
   
-  ::Yajl::Encoder.encode currencies
+  request = HTTPClient.get(YQL_BASE, {}, {
+    format: "json",
+    q: "select * from yahoo.finance.xchange where pair in (#{currency_list})",
+    env: "http://datatables.org/alltables.env"}).body
+  
+  ::Yajl::Parser.parse(request)['query']['results']['rate'].inject({}) do |hash, exchange|
+    hash.merge(exchange["id"][0..2] => exchange["Rate"].to_f)
+  end.to_json
 end
 
 get '/offline.manifest' do
