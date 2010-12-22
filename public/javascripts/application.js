@@ -234,7 +234,9 @@ window.addEventListener('orientationchange', detectOrientation);
 if (!navigator.onLine) $('#network-status').className = 'offline';
 
 Converter.update_currency_display();
-setTimeout(function() { Converter.update_currencies() }, 100);
+document.addEventListener("load", function() {
+  setTimeout(function() { Converter.update_currencies() }, 100);
+}, false);
 
 /*
 window.applicationCache.addEventListener('updateready', function(){
