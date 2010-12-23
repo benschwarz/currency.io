@@ -147,9 +147,9 @@ var Calculator = {
     if (!value) value = 0;
     if (!(/\./).test(value) && (value.length > 5 || output_value.length > 6))
       output_value = output_value.slice(0, -3);
-    if (value.length > 10 || output_value.length > 10) return;
+    if (value.length > 9 || output_value.length > 9) return;
 
-    if ((/^\.$/).test(value)) output_value = '0.00';
+    if ((/^0?\.*$/).test(value)) output_value = '0';
 
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
@@ -166,7 +166,7 @@ var Calculator = {
         decimals = split[1] !== undefined ? '.'+split[1] : '';
 
     while (re.test(num)) num = num.replace(re, '$1,$2');
-    return num + decimals;
+    return (num || 0) + decimals;
   },
 
   strip_commas: function(num) {
@@ -237,9 +237,3 @@ Converter.update_currency_display();
 document.addEventListener("load", function() {
   setTimeout(function() { Converter.update_currencies() }, 100);
 }, false);
-
-/*
-window.applicationCache.addEventListener('updateready', function(){
-		window.applicationCache.swapCache();
-}, false);
-*/
