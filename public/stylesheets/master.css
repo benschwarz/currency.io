@@ -28,7 +28,7 @@ div#wrapper { width: 31.9em; height: 48em; margin: 0em; overflow: hidden; positi
 #rates { font-size: 1.8em; margin: 0.5em 0em; text-align: center; }
 #rates em { font-size: 0.9em; color: #aaa; margin: -0.1em 0.1em 0em; }
 
-#input, #output { border-top: 1px solid #f3f3f3; margin: 0em; padding: 0.4em 0.5em 1em 0em; position: relative; cursor: pointer; background: transparent url('/images/angle-bracket.png') 2% 47% no-repeat; }
+#input, #output { border-top: 1px solid #f3f3f3; margin: 0em; padding: 0.4em 0.5em 1em 0em; position: relative; cursor: pointer; background: transparent none 2% 47% no-repeat; }
 #output { margin: 0em 0em 0.7em; }
 
 #input.touched, #output.touched { background-color: #cfc; }
@@ -53,9 +53,9 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 
 */
 
-#input-pad { background: #f2f2f2; background: #f2f2f2 url('/images/shadow-down.png') top left repeat-x; float: left; width: 105%; margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%; }
+#input-pad { background: #f2f2f2 none top left repeat-x; float: left; width: 105%; margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%; }
 #input-pad p { float: left; width: 22%; padding: 0.7em 0em; margin: 1.2% 0%; font-size: 2.7em; cursor: pointer; text-align: center; }
-#input-pad #clear { background: url('/images/btn-clear-x2.png') 50% 0% no-repeat; font-size: 1.4em; padding-top: 2.45em; }
+#input-pad #clear { background: none 50% 30% no-repeat; font-size: 1.4em; padding-top: 2.45em; }
 
 /*
 
@@ -63,7 +63,7 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 
 */
 
-#rate-selection { background: #f0f0f0 url('/images/shadow-down.png') top left repeat-x; position: absolute; height: 100%; overflow: hidden; top: 0%; left: -105%; z-index: 1; margin: 0% 0% 0% -2%; font-size: 1.5em; padding: 0em; text-align: center; width: 105%; }
+#rate-selection { background: #f0f0f0; position: absolute; height: 100%; overflow: hidden; top: 0%; left: -105%; z-index: 1; margin: 0% 0% 0% -2%; font-size: 1.5em; padding: 0em; text-align: center; width: 105%; }
 #rate-selection h2.left, h2.right { position: absolute; top: 1.3em; left: 5%; font-size: 0.75em; color: #888; }
 #rate-selection h2.right { left: auto; right: 7.5%; }
 
@@ -73,8 +73,7 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 #rate-selection a:last-child { left: 50%; }
 #rate-selection em { color: #bbb; }
 
-#rate-selection a.selected { background-repeat: no-repeat; background-position: 5% 50%;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMpJREFUeNpiDA0NZcADOoBYC4hLWfAoMgTiAgZGBnaG/wyKTHBhRhRFzEA8mYGREagILDEPl4lZQI3WDP//g9hHgHgiE9SsKiBWgCqSB4o0Qtm/gDgHiP+BFBYDcSsQHwQqcAPSPUA3CTKADWPoBuKLIAbI6nCIExnlgJLb/jP8Z4aadh1qABiATAwA4o3/ge75zwhUBHIII+N/IJ0HxN8hfIjCp0AcDMT1cK///78EaPoesPVQDAuev0BTmoB0CBCfAeI69GAACDAAmxIt/Hua7/AAAAAASUVORK5CYII='); }
+#rate-selection a.selected { background-repeat: no-repeat; background-position: 5% 50%; }
 #rate-selection a.selected:last-child { background-position: 95% 50%; }
 
 /* Animation  */
@@ -92,10 +91,9 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 
 */
 
-#credits { display: none; position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3; background: #fff url('/images/credits.png') 50% 50% no-repeat; }
-#credits img { visibility: hidden; display: block; width: 100%; height: 100%; }
+#credits { display: none; position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3; background: #fff none 50% 50% no-repeat; }
+#credits a { display: block; width: 100%; height: 100%; }
 .credits #credits { display: block; }
-
 
 /*
 
@@ -108,13 +106,4 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
   body { font-size: 62.5%; }
   p span { font-size: 1.3em; margin: 0em -0.15em 0em 0em; }
   #input h1, #output h1 { letter-spacing: 0.02em; }
-  #input-pad #clear { background: url('/images/btn-clear.png') 50% 30% no-repeat; }
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  #input, #output { background-image: url('/images/angle-bracket-x2.png'); background-size: 6px 8px; }
-  #credits { background-image: url('/images/credits-x2.png'); background-size: 6px 8px; background-size: 368px 256px; }
-  #input-pad #clear { background: url('/images/btn-clear-x2.png') 50% 30% no-repeat; background-size: 30px 30px; }
-  #rate-selection a.selected { background-size: 10px 10px;
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAYpJREFUeNqcVMFxgzAQ1DEpQCWkBNKB6SA8DF/cQVxB7AqSDvyGT9SB04EpwSXQgbIndOSUMCTAjEBIutXu7UnkvTdbn6qqrrF76Lruzp1sM1hdveCzi+0G8BOP0xaGCH40RDfjvQ0DFF/e95sYEtEF0RGMgQyD8d/9YQM7kRrAmFzUOHAuV0kOUpEvANnIiNmaiFHCGLdOMhlINZbUUARzDLbKZZYKgUHqD01BqvxkKqBBe1uQ+urF0TRNXIPDJIIpIyBHn4vUIqAHBV7Uy6K6rnlup/Mdc8dSS42eAcxKbsakmByrryjcRrvqlQkxd4nUaaP9fn/BooYDxDHlnEOfwexMJkoxQj9ch7nsLmBK1vMkkxI33BxYkIyJJ3zfdRnoDQSMxtfoKv2WmrgM0CPolFg4TMdJWGlmPswduvbb1VnAANq2DgHM9jOURSrRxJJxYd3CkxQ232loBVicGUHnE5ADxo5/HYDZkwIWJ6AVY2mQ3ChnuUQXT+fS5RBq1JiPyL74zxH9EmAAqhLDs79Waa4AAAAASUVORK5CYII='); }
 }
