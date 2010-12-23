@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon-precomposed" media="screen and (resolution: 163dpi)" href="/images/icons/appicon.png" />
-    <link rel="apple-touch-icon-precomposed" media="screen and (resolution: 326dpi)" href="/images/icons/appicon-x2.png" />
+    <link rel="apple-touch-icon-precomposed" media="screen and (-webkit-min-device-pixel-ratio:1)" href="/images/icons/appicon.png" />
+    <link rel="apple-touch-icon-precomposed" media="screen and (-webkit-min-device-pixel-ratio:2)" href="/images/icons/appicon-x2.png" />
     <link rel="apple-touch-startup-image" href="/images/loading.png">
     <link rel="stylesheet" href="/stylesheets/master.css">
+    <link rel="stylesheet" href="/stylesheets/images.css" media="only screen and (-webkit-min-device-pixel-ratio:1)">
+    <link rel="stylesheet" href="/stylesheets/images-x2.css" media="only screen and (-webkit-min-device-pixel-ratio:2)">
   </head>
   <body>
     <%= yield %>
