@@ -141,15 +141,10 @@ var Calculator = {
   },
 
   update_values: function(value) {
-    var value = this.strip_commas(value),
-        output_value = (value * this.rate).toFixed(2);
+    var value = !value ? 0 : this.strip_commas(value),
+        output_value = (isNaN(value)) ? '0.00' : (value * this.rate).toFixed(2);
 
-    if (!value) value = 0;
-    if (!(/\./).test(value) && (value.length > 5 || output_value.length > 6))
-      output_value = output_value.slice(0, -3);
     if (value.length > 9 || output_value.length > 9) return;
-
-    if ((/^0?\.*$/).test(value)) output_value = '0';
 
     this.input.innerHTML = this.add_commas(value);
     this.output.innerHTML = this.add_commas(output_value);
@@ -166,7 +161,7 @@ var Calculator = {
         decimals = split[1] !== undefined ? '.'+split[1] : '';
 
     while (re.test(num)) num = num.replace(re, '$1,$2');
-    return (num || 0) + decimals;
+    return num + decimals;
   },
 
   strip_commas: function(num) {
