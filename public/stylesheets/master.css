@@ -64,22 +64,26 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 */
 
 #rate-selection { background: #f0f0f0; position: absolute; height: 100%; overflow: hidden; top: 0%; left: -105%; z-index: 1; margin: 0% 0% 0% -2%; font-size: 1.5em; padding: 0em; text-align: center; width: 105%; }
-#rate-selection h2.left, h2.right { position: absolute; top: 1.3em; left: 5%; font-size: 0.75em; color: #888; }
-#rate-selection h2.right { left: auto; right: 7.5%; }
-
-#rate-selection ul { display: block; clear: both; list-style: none; margin: -0.4em 3% 0em 7.5%; padding: 0em; position: relative; left: -3%; }
-#rate-selection li { position: relative; display: block; border-top: 0.1em solid #ddd; padding: 0.55em 0em; }
-#rate-selection a { position: absolute; width: 50%; text-decoration: none; padding: 0.6em 0em; margin: -0.6em 0em 0em; }
-#rate-selection a:last-child { left: 50%; }
+#rate-selection ul { display: block; clear: both; list-style: none; margin: 0.5em 3% 0em 7.5%; padding: 0em; position: relative; left: -3%; }
+#rate-selection li { position: relative; display: block; border-top: 0.1em solid #ddd; padding: 0.7em 0em; top: -0.1em; }
+#rate-selection li:first-child { border: 0em; }
+#rate-selection li a.touched { background-color: rgba(0, 255, 0, 0.2); }
+#rate-selection a { position: absolute; top: 0.75em; left: 0em; right: 0em; text-decoration: none; padding: 0.75em 0em; margin: -0.75em 0em 0em; opacity: 0; }
 #rate-selection em { color: #bbb; }
 
+#rate-selection li.selected { background-color: #69f; }
 #rate-selection a.selected { background-repeat: no-repeat; background-position: 5% 50%; }
-#rate-selection a.selected:last-child { background-position: 95% 50%; }
 
 /* Animation  */
 #converter, #rate-selection { -webkit-transition: left 370ms; }
-.edit-rates #rate-selection { left: 0%; }
-.edit-rates #converter { left: 105%; }
+body[class*="edit-rates-"] #rate-selection { left: 0%; }
+body[class*="edit-rates-"] #converter { left: 105%; }
+
+#rate-selection a { -webkit-transition: opacity 370ms; }
+.edit-rates-from #rate-selection a[id*="from-"] { display: block; opacity: 1; }
+.edit-rates-from #rate-selection a[id*="to-"] { display: none; }
+.edit-rates-to #rate-selection a[id*="to-"] { display: block; opacity: 1; }
+.edit-rates-to #rate-selection a[id*="from-"] { display: none; }
 
 #wrapper { -webkit-perspective: 1000; }
 #flippable { -webkit-transition-duration: 300ms; -webkit-backface-visibility: hidden; }

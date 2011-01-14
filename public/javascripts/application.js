@@ -184,10 +184,10 @@ $('#clear').touch(function(e) {
 });
 
 $('#input').touch(function(e) {
-  addClass($('body'), 'edit-rates');
+  addClass($('body'), 'edit-rates-from');
 });
 $('#output').touch(function(e) {
-  addClass($('body'), 'edit-rates');
+  addClass($('body'), 'edit-rates-to');
 });
 
 $('#flip').touch(function(e) {
@@ -195,12 +195,9 @@ $('#flip').touch(function(e) {
   setTimeout(function() {
     var last = { from: window.from_to['from'], to: window.from_to['to'] }
     Converter.update_currency_display(last.to, last.from);
+    Calculator.clear();
   }, 130);
   setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
-});
-
-$('#save').touch(function(e) {
-  removeClass($('body'), 'edit-rates');
 });
 
 Converter.draw_currencies();
@@ -213,6 +210,7 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
     var id = this.id.split('-');
     args = id[0] == 'from' ? [id[1], null] : [null, id[1]];
     Converter.update_currency_display.apply(Converter, args);
+    removeClass($('body'), 'edit-rates-\\w+');
   });
 }
 
