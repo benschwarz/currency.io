@@ -1,16 +1,14 @@
 
 Object.prototype.touch = function(func) {
-  var target, func, moving;
+  var target, func;
 
   if (window.Touch){
     this.addEventListener('touchstart', function(e){
       e.preventDefault();
 
       if (!e.touches || e.touches.length > 1) return;
-
       target = this;
       this.className += ' touched';
-      this.addEventListener('touchmove', moving = function(e){}, false);
     }, false);
 
     window.addEventListener('touchend', function(e){
