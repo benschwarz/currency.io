@@ -210,8 +210,8 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
   rates[i].touch(function(e) {
     e.preventDefault();
 
-    var ref = this.id.split('-');
-    args = ref[0] == 'from' ? [ref[1], null] : [null, ref[1]];
+    var id = this.id.split('-');
+    args = id[0] == 'from' ? [id[1], null] : [null, id[1]];
     Converter.update_currency_display.apply(Converter, args);
   });
 }
