@@ -210,6 +210,7 @@ for (var i = 0, ii = rates.length; i < ii; i++) {
     var id = this.id.split('-');
     args = id[0] == 'from' ? [id[1], null] : [null, id[1]];
     Converter.update_currency_display.apply(Converter, args);
+    Calculator.clear();
     removeClass($('body'), 'edit-rates-\\w+');
   });
 }
