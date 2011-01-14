@@ -18,7 +18,6 @@ Object.prototype.touch = function(func) {
     this.addEventListener('touchend', function(e){
       e.preventDefault();
 
-      this.removeEventListener('touchmove', moving);
       if (func) func.apply(this, [e]);
     }, false);
   } else {
