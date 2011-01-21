@@ -5,7 +5,6 @@ Bundler.setup
 require ::File.dirname(__FILE__) + '/app'
 require 'rack/pagespeed'
 
-use Rack::CommonLogger
 use Rack::ContentLength   # Set Content-Length on string bodies
 use Rack::ETag            # Set E-Tags on string bodies
 use Rack::ConditionalGet  # If-Modified-Since
@@ -25,7 +24,6 @@ use Rack::PageSpeed, public: Sinatra::Application.public do
   inline_javascripts max_size: 4000
   inline_css
   combine_javascripts
-  minify_javascripts
 end
 
 run Sinatra::Application
