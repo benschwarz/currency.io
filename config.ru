@@ -16,7 +16,7 @@ case ENV['RACK_ENV']
   when "development"
     cache_store = :disk
   when "production"
-    cache_store = {memcached: ENV['MEMCACHE_SERVERS']}
+    cache_store = {memcached: "#{ENV['MEMCACHE_USERNAME']}:#{ENV['MEMCACHE_PASSWORD']}@#{ENV['MEMCACHE_SERVERS']}"}
 end
 
 
