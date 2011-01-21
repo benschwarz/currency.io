@@ -16,8 +16,7 @@ case ENV['RACK_ENV']
   when "development"
     cache_store = :disk
   when "production"
-    memcached_server = ENV['MEMCACHE_USERNAME'] + ":" + ENV['MEMCACHE_PASSWORD'] + "@" + ENV['MEMCACHE_SERVERS'].join
-    cache_store = {memcached: memcached_server}
+    cache_store = {memcached: ENV['MEMCACHE_SERVERS']}
 end
 
 

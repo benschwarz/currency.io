@@ -3,6 +3,7 @@ GEM
   specs:
     configuration (1.2.0)
     daemons (1.1.0)
+    dalli (1.0.1)
     eventmachine (0.12.10)
     haml (3.0.24)
     heroku (1.14.9)
@@ -49,6 +50,7 @@ PLATFORMS
 
 DEPENDENCIES
   daemons
+  dalli
   haml
   heroku
   peach

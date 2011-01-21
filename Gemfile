@@ -12,3 +12,7 @@ gem "rack-pagespeed"
 gem "heroku"
 gem "thin"
 gem "daemons"
+
+group :production do
+  gem "dalli"
+end
