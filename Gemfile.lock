@@ -2,6 +2,8 @@ GEM
   remote: http://rubygems.org/
   specs:
     configuration (1.2.0)
+    daemons (1.1.0)
+    eventmachine (0.12.10)
     haml (3.0.24)
     heroku (1.14.9)
       json_pure (>= 1.2.0, < 1.5.0)
@@ -36,18 +38,24 @@ GEM
       mime-types (>= 1.16)
     sinatra (1.0)
       rack (>= 1.0)
+    thin (1.2.7)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     yajl-ruby (0.7.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  daemons
   haml
   heroku
   peach
-  rack (= 1.2.1)
+  rack
   rack-cache
   rack-client (= 0.3.1.pre.f)
   rack-pagespeed
-  sinatra (= 1.0)
+  sinatra
+  thin
   yajl-ruby

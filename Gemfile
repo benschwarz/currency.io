@@ -1,8 +1,8 @@
 source :rubygems
 
-gem "sinatra", "1.0"
+gem "sinatra"
 gem "haml"
-gem "rack", "1.2.1"
+gem "rack"
 gem "rack-client", "0.3.1.pre.f"
 gem "rack-cache"
 gem "yajl-ruby"
@@ -10,3 +10,5 @@ gem "peach"
 gem "rack-pagespeed"
 
 gem "heroku"
+gem "thin"
+gem "daemons"
