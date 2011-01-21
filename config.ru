@@ -25,6 +25,7 @@ use Rack::PageSpeed, public: Sinatra::Application.public do
   inline_javascripts max_size: 4000
   inline_css
   combine_javascripts
+  minify_javascripts
 end
 
 run Sinatra::Application
