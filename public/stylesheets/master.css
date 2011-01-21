@@ -101,6 +101,20 @@ body[class*="edit-rates-"] #converter { left: 105%; }
 
 /*
 
+  Installation screen
+
+*/
+
+#install { position: absolute; bottom: 0.8em; left: 50%; margin-left: -7em; width: 12em; background: #222; font-size: 2em; padding: 0.8em 1em 0.2em; text-align: center; color: #bbb; line-height: 1.3;
+  border-radius: 0.3em; -webkit-border-radius: 0.3em;
+  box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); }
+#install:after { position: absolute; left: 5.8em; bottom: -0.4em; content: ' '; border: 1.2em solid #222; width: 0em; height: 0em; border-bottom: none; border-left: 1.2em solid transparent; border-right: 1.2em solid transparent; }
+#install p { margin: 0em 0em 0.8em; }
+#install em { color: #fff; white-space: nowrap; }
+#add-button { width: 24px; height: 22px; display: inline-block; background: transparent none 50% 50% no-repeat; }
+
+/*
+
   Preloading
   iPhone-specfic styles
 
@@ -110,4 +124,5 @@ body[class*="edit-rates-"] #converter { left: 105%; }
   body { font-size: 62.5%; }
   p span { font-size: 1.3em; margin: 0em -0.15em 0em 0em; }
   #input h1, #output h1 { letter-spacing: 0.02em; }
+  #add-button { position: relative; top: 0.15em; }
 }

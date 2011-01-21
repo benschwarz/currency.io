@@ -1,4 +1,3 @@
-
 Object.prototype.touch = function(func) {
   var target, func;
 
@@ -230,3 +229,7 @@ setTimeout(function() { Converter.update_currencies(); }, 100);
 window.applicationCache.addEventListener('updateready', function(){
   window.applicationCache.swapCache();
 }, false);
+
+
+if(navigator.standalone) $('#install').style.display = 'none';
+else $('#wrapper').style.display = 'none';
