@@ -17,7 +17,11 @@ YQL_BASE = "http://query.yahooapis.com/v1/public/yql"
 
 configure { mime_type :manifest, "text/cache-manifest" }
 
-get '/', agent: /(iPhone|iPod)/ do
+before do
+  content_type :html, charset: 'utf-8'
+end
+
+get '/', agent: /(iPhone|iPod|webOS)/ do
   erb :index
 end
 
