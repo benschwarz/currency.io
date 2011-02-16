@@ -82,7 +82,7 @@ body[class*="edit-rates-"] #converter { left: 105%; }
 
 /*  Installation screen */
 
-#install { position: absolute; top: 0em; left: 0em; right: 0em; bottom: 0em; background: #f7f7f7; color: #002; text-align: center; line-height: 1.3; }
+#install { display: none; position: absolute; top: 0em; left: 0em; right: 0em; bottom: 0em; background: #f7f7f7; color: #002; text-align: center; line-height: 1.3; }
 
 #install h1 { height: 10.5em; margin: 0.5em 0em; text-indent: -5em; text-align: left; overflow: hidden; background-size: 100px 100px; background: url('/images/logo.png') 50% 0% no-repeat; }
 #install h2 { font-size: 1.9em; margin: 0.4em 0em; }

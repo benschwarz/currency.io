@@ -174,8 +174,6 @@ var Calculator = {
 
 if(navigator.standalone) {
 
-  $('#install').style.display = 'none';
-
   var buttons = $('#input-pad p');
   for (var i = 0, ii = buttons.length; i < ii; i++) {
     if (!!buttons[i].id.length) continue;
@@ -237,5 +235,6 @@ if(navigator.standalone) {
 } else {
 
   $('#wrapper').style.display = 'none';
+  $('#install').style.display = 'block';
 
 } 
