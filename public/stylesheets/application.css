@@ -7,7 +7,7 @@ section { display: block; }
 em { font-style: normal; }
 h1, h2 { font-size: 1em; margin: 0em; padding: 0em; }
 button { font-family: "Helvetica Neue", sans-serif; background: #fff; border: transparent; font-size: 0.9em; padding: 0px; color: inherit; }
-div#wrapper { width: 31.9em; height: 48em; margin: 0em; overflow: hidden; position: relative; }
+div#wrapper { display: none; width: 31.9em; height: 48em; margin: 0em; overflow: hidden; position: relative; }
 
 /*  Converter */
 

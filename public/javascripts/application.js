@@ -173,6 +173,9 @@ var Calculator = {
 */
 
 if(navigator.standalone) {
+  
+  $('#wrapper').style.display = 'block';
+  $('#install').style.display = 'none';
 
   var buttons = $('#input-pad p');
   for (var i = 0, ii = buttons.length; i < ii; i++) {
