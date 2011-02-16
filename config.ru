@@ -18,12 +18,12 @@ case ENV['RACK_ENV']
     cache_store = {memcached: "#{ENV['MEMCACHE_USERNAME']}:#{ENV['MEMCACHE_PASSWORD']}@#{ENV['MEMCACHE_SERVERS']}"}
 end
 
-use Rack::PageSpeed, public: Sinatra::Application.public do
-  store disk: "/tmp"
-  
-  inline_javascripts max_size: 4000
-  inline_css
-  combine_javascripts
-end
+# use Rack::PageSpeed, public: Sinatra::Application.public do
+#   store disk: "/tmp"
+#   
+#   inline_javascripts max_size: 4000
+#   inline_css
+#   combine_javascripts
+# end
 
 run Sinatra::Application
