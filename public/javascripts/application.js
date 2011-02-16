@@ -172,64 +172,70 @@ var Calculator = {
 
 */
 
-var buttons = $('#input-pad p');
-for (var i = 0, ii = buttons.length; i < ii; i++) {
-  if (!!buttons[i].id.length) continue;
-  buttons[i].touch(function() { Calculator.add(this.innerText); });
-}
+if(navigator.standalone) {
 
-$('#clear').touch(function(e) {
-  Calculator.clear();
-});
+  $('#install').style.display = 'none';
 
-$('#input').touch(function(e) {
-  addClass($('body'), 'edit-rates-from');
-});
-$('#output').touch(function(e) {
-  addClass($('body'), 'edit-rates-to');
-});
+  var buttons = $('#input-pad p');
+  for (var i = 0, ii = buttons.length; i < ii; i++) {
+    if (!!buttons[i].id.length) continue;
+    buttons[i].touch(function() { Calculator.add(this.innerText); });
+  }
 
-$('#flip').touch(function(e) {
-  addClass($('body'), 'flip');
-  setTimeout(function() {
-    var last = { from: window.from_to['from'], to: window.from_to['to'] }
-    Converter.update_currency_display(last.to, last.from);
+  $('#clear').touch(function(e) {
     Calculator.clear();
-  }, 130);
-  setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
-});
-
-Converter.draw_currencies();
-
-var rates = $('#rate-selection a');
-for (var i = 0, ii = rates.length; i < ii; i++) {
-  rates[i].touch(function(e) {
-    e.preventDefault();
-
-    var id = this.id.split('-');
-    args = id[0] == 'from' ? [id[1], null] : [null, id[1]];
-    Converter.update_currency_display.apply(Converter, args);
-    Calculator.clear();
-    removeClass($('body'), 'edit-rates-\\w+');
   });
-}
 
-var detectOrientation = function() {
-  if (window.orientation) addClass($('body'), 'credits');
-  else removeClass($('body'), 'credits');
-}
-detectOrientation();
-window.addEventListener('orientationchange', detectOrientation);
+  $('#input').touch(function(e) {
+    addClass($('body'), 'edit-rates-from');
+  });
+  $('#output').touch(function(e) {
+    addClass($('body'), 'edit-rates-to');
+  });
 
-if (!navigator.onLine) $('#network-status').className = 'offline';
+  $('#flip').touch(function(e) {
+    addClass($('body'), 'flip');
+    setTimeout(function() {
+      var last = { from: window.from_to['from'], to: window.from_to['to'] }
+      Converter.update_currency_display(last.to, last.from);
+      Calculator.clear();
+    }, 130);
+    setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
+  });
 
-Converter.update_currency_display();
-setTimeout(function() { Converter.update_currencies(); }, 100);
+  Converter.draw_currencies();
 
-window.applicationCache.addEventListener('updateready', function(){
-  window.applicationCache.swapCache();
-}, false);
+  var rates = $('#rate-selection a');
+  for (var i = 0, ii = rates.length; i < ii; i++) {
+    rates[i].touch(function(e) {
+      e.preventDefault();
 
+      var id = this.id.split('-');
+      args = id[0] == 'from' ? [id[1], null] : [null, id[1]];
+      Converter.update_currency_display.apply(Converter, args);
+      Calculator.clear();
+      removeClass($('body'), 'edit-rates-\\w+');
+    });
+  }
 
-if(navigator.standalone) $('#install').style.display = 'none';
-else $('#wrapper').style.display = 'none';
+  var detectOrientation = function() {
+    if (window.orientation) addClass($('body'), 'credits');
+    else removeClass($('body'), 'credits');
+  }
+  detectOrientation();
+  window.addEventListener('orientationchange', detectOrientation);
+
+  if (!navigator.onLine) $('#network-status').className = 'offline';
+
+  Converter.update_currency_display();
+  setTimeout(function() { Converter.update_currencies(); }, 100);
+
+  window.applicationCache.addEventListener('updateready', function(){
+    window.applicationCache.swapCache();
+  }, false);
+
+} else {
+
+  $('#wrapper').style.display = 'none';
+
+} 
