@@ -1,8 +1,4 @@
-/*
-
-  Generic styles
-
-*/
+/*  Generic styles  */
 
 html { background: #fff; }
 body { width: 31.9em; margin: 0em auto; padding: 0em; font-family: "Helvetica Neue", sans-serif; color: #555; font-weight: bold; text-align: right; }
@@ -13,11 +9,7 @@ h1, h2 { font-size: 1em; margin: 0em; padding: 0em; }
 button { font-family: "Helvetica Neue", sans-serif; background: #fff; border: transparent; font-size: 0.9em; padding: 0px; color: inherit; }
 div#wrapper { width: 31.9em; height: 48em; margin: 0em; overflow: hidden; position: relative; }
 
-/*
-
-  Converter
-
-*/
+/*  Converter */
 
 #converter { position: absolute; width: 100%; }
 
@@ -47,21 +39,13 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 #flip.touched button { background: #555; }
 #save.touched button { background: #3F9979 none; }
 
-/*
-
-  Input pad
-
-*/
+/*  Input pad */
 
 #input-pad { background: #f2f2f2 none top left repeat-x; float: left; width: 105%; margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%; }
 #input-pad p { float: left; width: 22%; padding: 0.7em 0em; margin: 1.2% 0%; font-size: 2.7em; cursor: pointer; text-align: center; }
 #input-pad #clear { background: none 50% 30% no-repeat; font-size: 1.4em; padding-top: 2.45em; }
 
-/*
-
-  Currency selection
-
-*/
+/*  Currency selection  */
 
 #rate-selection { background: #f0f0f0; position: absolute; height: 100%; overflow: hidden; top: 0%; left: -105%; z-index: 1; margin: 0% 0% 0% -2%; font-size: 1.5em; padding: 0em; text-align: center; width: 105%; }
 #rate-selection ul { display: block; clear: both; list-style: none; margin: 0.5em 3% 0em 7.5%; padding: 0em; position: relative; left: -3%; }
@@ -75,6 +59,7 @@ button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; 
 #rate-selection a.selected { background-repeat: no-repeat; background-position: 5% 50%; }
 
 /* Animation  */
+
 #converter, #rate-selection { -webkit-transition: left 370ms; }
 body[class*="edit-rates-"] #rate-selection { left: 0%; }
 body[class*="edit-rates-"] #converter { left: 105%; }
@@ -89,36 +74,29 @@ body[class*="edit-rates-"] #converter { left: 105%; }
 #flippable { -webkit-transition-duration: 300ms; -webkit-backface-visibility: hidden; }
 .flip #flippable { -webkit-transform: rotateX(180deg); }
 
-/*
-
-  Credits
-
-*/
+/*  Credits */
 
 #credits { display: none; position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3; background: #fff none 50% 50% no-repeat; }
 #credits a { display: block; width: 100%; height: 100%; }
 .credits #credits { display: block; }
 
-/*
+/*  Installation screen */
 
-  Installation screen
+#install { position: absolute; top: 0em; left: 0em; right: 0em; bottom: 0em; background: #f7f7f7; color: #002; text-align: center; line-height: 1.3; }
 
-*/
+#install h1 { height: 10.5em; margin: 0.5em 0em; text-indent: -5em; text-align: left; overflow: hidden; background-size: 100px 100px; background: url('/images/logo.png') 50% 0% no-repeat; }
+#install h2 { font-size: 1.9em; margin: 0.4em 0em; }
+#install > p { font-size: 1.4em; margin: 0.5em 0em 0em; color: #445; font-weight: normal; width: 16em; margin: 0em auto; }
 
-#install { position: absolute; bottom: 0.8em; left: 50%; margin-left: -7em; width: 12em; background: #222; font-size: 2em; padding: 0.8em 1em 0.2em; text-align: center; color: #bbb; line-height: 1.3;
+#install-wrapper { position: absolute; bottom: 0.8em; left: 50%; margin-left: -7em; width: 12em; background: #222; font-size: 1.6em; padding: 0.8em 1em 0.2em; text-align: center; line-height: 1.3;
   border-radius: 0.3em; -webkit-border-radius: 0.3em;
   box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); }
-#install:after { position: absolute; left: 5.8em; bottom: -0.4em; content: ' '; border: 1.2em solid #222; width: 0em; height: 0em; border-bottom: none; border-left: 1.2em solid transparent; border-right: 1.2em solid transparent; }
-#install p { margin: 0em 0em 0.8em; }
-#install em { color: #fff; white-space: nowrap; }
+#install-wrapper:after { position: absolute; left: 5.8em; bottom: -0.4em; content: ' '; border: 1.2em solid #222; width: 0em; height: 0em; border-bottom: none; border-left: 1.2em solid transparent; border-right: 1.2em solid transparent; }
+#install-wrapper p { color: #bbb; margin: 0em 0em 0.8em; }
+#install-wrapper em { color: #fff; white-space: nowrap; }
 #add-button { width: 24px; height: 22px; display: inline-block; background: transparent none 50% 50% no-repeat; }
 
-/*
-
-  Preloading
-  iPhone-specfic styles
-
-*/
+/*  iPhone-specfic styles  */
 
 @media only screen and (max-device-width: 480px) {
   body { font-size: 62.5%; }
