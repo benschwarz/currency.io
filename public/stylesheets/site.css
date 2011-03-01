@@ -3,18 +3,22 @@
 body { font-family: 'inconsolata', sans-serif; background: #f7f7f7; color: #002; line-height: 1.2; font-size: 75%; }
 .wrapper { width: 32em; margin: 0em auto; text-align: center; }
 
-#content { padding: 2.6em 2em 20em 3em; width: 24em; }
+#content { padding: 1.5em 2em 10em 3em; width: 24em; }
 
-h1 { height: 190px; text-indent: -5em; text-align: left; overflow: hidden; background: url('/images/logo.png') 50% 0% no-repeat; }
-h2 { font-size: 1.6em; margin: 0.4em 0em; font-weight: normal; }
-p { font-size: 1.4em; margin: 0.5em 0em 0em; color: #445; }
-button { font-family: 'inconsolata', sans-serif; font-size: 1.4em; margin: 3em 0em; background: #002; color: #f7f7f7; padding: 0.75em 1.8em; border: 0em; border-radius: 0.5em; cursor: pointer; letter-spacing: 0.1em; }
+h1 { height: 0em; overflow: hidden; padding-top: 8.6em; font-weight: normal; font-size: 1.6em; background: url('/images/logo.png') 50% 0% no-repeat; margin: 0em 0em 1em; }
+h2, p { font-weight: normal; font-size: 1.4em; margin: 0.4em 0em 0em; color: #445; }
+a { color: inherit; border-bottom: 0.1em solid; text-decoration: none; }
+button { font-family: 'inconsolata', sans-serif; font-size: 1.4em; margin: 1.6em 0em; background: #002; color: #f7f7f7; padding: 0.75em 1.8em; border: 0em; border-radius: 0.5em; cursor: pointer; letter-spacing: 0.1em; }
 button:hover { background: #c33; }
 button:active { background: #3c6; }
 
-.highlight { position: fixed; z-index: 1; left: 0em; bottom: 0em; margin: 0em; background: rgba(240, 240, 240, 0.85); width: 100%; padding: 2.4em 0em; line-height: 1.4; }
-.highlight em { font-style: normal; color: #667; display: block; background: #d9d9d9; width: 14em; padding: 0.1em 0.2em; margin: 0.1em auto; border-radius: 0.5em; }
+footer { display: block; position: fixed; z-index: 1; left: 0em; bottom: 0em; margin: 0em; background: rgba(240, 240, 240, 0.85); width: 100%; padding: 1em 0em; line-height: 1.4; }
+.highlight { margin: 0em 0em 0em -1.5em; }
+.highlight em { font-style: normal; color: #667; display: block; background: #d9d9d9; width: 11em; padding: 0.1em 0.2em; margin: 0.1em auto; border-radius: 0.5em; }
 .highlight strong { font-weight: normal; color: #002; }
+
+.ab-c { display: none; margin: 1.2em 0em; padding: 1.6em 0em 0em; font-family: 'Andale Mono', 'Courier New', courier; font-size: 1.05em; color: #999; border-top: 1px dotted #ddd; }
+.ab-c em { display: block; font-style: normal; font-size: 1.1em; }
 
 #video { display: none; position: absolute; top: 1em; left: 50%; margin: 0em 0em 0em -15.5em; padding: 1.5em; background: #e3e3e3; }
 #video button { position: relative; margin: 0.75em 0em 0em; padding-left: 2.8em; }
