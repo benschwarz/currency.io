@@ -1,9 +1,3 @@
-require 'sinatra'
-require 'rack/client'
-require 'rack/cache'
-require 'yajl'
-require 'json'
-
 HTTPClient = Rack::Client.new do
   use Rack::Cache,
     :metastore   => 'heap://',
@@ -15,7 +9,10 @@ end
 
 YQL_BASE = "http://query.yahooapis.com/v1/public/yql"
 
-configure { mime_type :manifest, "text/cache-manifest" }
+configure do
+  set :root, File.dirname(__FILE__)
+  mime_type :manifest, "text/cache-manifest"
+end
 
 before do
   content_type :html, charset: 'utf-8'

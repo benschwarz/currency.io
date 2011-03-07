@@ -1,9 +1,8 @@
 require 'rubygems'
 require 'bundler'
-Bundler.setup
+Bundler.require
 
 require ::File.dirname(__FILE__) + '/app'
-require 'rack/pagespeed'
 
 use Rack::ContentLength   # Set Content-Length on string bodies
 use Rack::ETag            # Set E-Tags on string bodies
