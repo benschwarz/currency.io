@@ -1,1 +1,1 @@
-rvm 1.9.2@grip
+rvm use 1.9.2@grip --create
