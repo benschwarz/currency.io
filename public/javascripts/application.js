@@ -7,11 +7,11 @@ Object.prototype.touch = function(func) {
 
       if (!e.touches || e.touches.length > 1) return;
       target = this;
-      this.className += ' touched';
+			this.classList.add('touched');
     }, false);
 
     window.addEventListener('touchend', function(e){
-      if (target) target.className = target.className.replace(/\stouched/, '');
+      if (target) target.classList.remove("touched");
     });
 
     this.addEventListener('touchend', function(e){
@@ -25,17 +25,6 @@ Object.prototype.touch = function(func) {
 
 }
 
-var addClass = function(element, className) {
-  var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
-  if (re.test(element.className)) return;
-  element.className += ' ' + className;
-}
-
-var removeClass = function(element, className) {
-  var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
-  element.className = element.className.replace(re,' ');
-}
-
 var $ = function(q, e) {
   var e = e || document,
       match = e.querySelectorAll(q);
@@ -43,7 +32,6 @@ var $ = function(q, e) {
 }
 
 var Converter = {
-
   draw_currencies: function() {
     var html = '',
         currencies = window.currencies;
@@ -172,7 +160,6 @@ var Calculator = {
 
 */
 
-if(navigator.standalone) {
   
   $('#wrapper').style.display = 'block';
   $('#install').style.display = 'none';
@@ -188,20 +175,20 @@ if(navigator.standalone) {
   });
 
   $('#input').touch(function(e) {
-    addClass($('body'), 'edit-rates-from');
+		$('body').classList.add('edit-rates-from');
   });
   $('#output').touch(function(e) {
-    addClass($('body'), 'edit-rates-to');
+		$('body').classList.add('edit-rates-to');
   });
 
   $('#flip').touch(function(e) {
-    addClass($('body'), 'flip');
+		$('body').classList.add('flip');
     setTimeout(function() {
       var last = { from: window.from_to['from'], to: window.from_to['to'] }
       Converter.update_currency_display(last.to, last.from);
       Calculator.clear();
     }, 130);
-    setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
+    setTimeout(function() { $('body').classList.remove('flip'); }, 275);
   });
 
   Converter.draw_currencies();
@@ -215,13 +202,13 @@ if(navigator.standalone) {
       args = id[0] == 'from' ? [id[1], null] : [null, id[1]];
       Converter.update_currency_display.apply(Converter, args);
       Calculator.clear();
-      removeClass($('body'), 'edit-rates-\\w+');
+			$('body').classList.remove('edit-rates-\\w+');
     });
   }
 
   var detectOrientation = function() {
-    if (window.orientation) addClass($('body'), 'credits');
-    else removeClass($('body'), 'credits');
+    if (window.orientation) $('body').classList.add('credits');
+    else $('body').classList.remove('credits');
   }
   detectOrientation();
   window.addEventListener('orientationchange', detectOrientation);
@@ -235,9 +222,3 @@ if(navigator.standalone) {
     window.applicationCache.swapCache();
   }, false);
 
-} else {
-
-  $('#wrapper').style.display = 'none';
-  $('#install').style.display = 'block';
-
-} 
