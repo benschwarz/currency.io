@@ -1,25 +1,11 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    addressable (2.2.4)
     configuration (1.2.0)
     daemons (1.1.0)
-    em-http-request (0.3.0)
-      addressable (>= 2.0.0)
-      escape_utils
-      eventmachine (>= 0.12.9)
-    em-synchrony (0.2.0)
-      eventmachine (>= 0.12.9)
-    escape_utils (0.2.3)
+    dalli (1.0.1)
     eventmachine (0.12.10)
-    faraday (0.5.7)
-      addressable (~> 2.2.4)
-      multipart-post (~> 1.1.0)
-      rack (< 2, >= 1.1.0)
-    faraday_middleware (0.3.2)
-      faraday (~> 0.5.4)
     haml (3.0.24)
-    hashie (1.0.0)
     heroku (1.14.9)
       json_pure (< 1.5.0, >= 1.2.0)
       launchy (~> 0.3.2)
@@ -31,10 +17,13 @@ GEM
       rake (>= 0.8.1)
     memcached (1.0.2)
     mime-types (1.16)
-    multipart-post (1.1.0)
     nokogiri (1.4.4)
     peach (0.4)
     rack (1.2.1)
+    rack-cache (0.5.3)
+      rack (>= 0.4)
+    rack-client (0.3.1.pre.f)
+      rack (>= 1.0.0)
     rack-pagespeed (1.0.2)
       jsmin (= 1.0.1)
       jsmin (= 1.0.1)
@@ -54,22 +43,21 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    yajl-ruby (0.8.1)
+    yajl-ruby (0.7.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   daemons
-  em-http-request (= 0.3.0)
-  em-synchrony (= 0.2.0)
-  faraday (= 0.5.7)
-  faraday_middleware (= 0.3.2)
-  haml (= 3.0.24)
-  hashie
+  dalli
+  haml
   heroku
-  peach (= 0.4)
+  peach
+  rack
+  rack-cache
+  rack-client (= 0.3.1.pre.f)
   rack-pagespeed
-  sinatra (= 1.0)
+  sinatra
   thin
-  yajl-ruby (= 0.8.1)
+  yajl-ruby
