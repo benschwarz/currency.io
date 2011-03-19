@@ -199,7 +199,9 @@ if(navigator.standalone) {
     setTimeout(function() {
       var last = { from: window.from_to['from'], to: window.from_to['to'] }
       Converter.update_currency_display(last.to, last.from);
-      Calculator.clear();
+      if (Calculator.input.innerHTML.length >= 9 || Calculator.output.innerHTML.length >= 9) {
+        Calculator.clear();
+      }
     }, 130);
     setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
   });
