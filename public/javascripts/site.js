@@ -1,10 +1,10 @@
 $(function() {
   var video;
   $('#watch-video').click(function() {
-    $('#video').show();
+    $('#video').animate({top: '1em'});
   });
 
   $('#close-video').click(function() {
-    $('#video').fadeOut();
+    $('#video').animate({top: '-48em'});
   });
 });
