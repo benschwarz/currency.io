@@ -22,7 +22,7 @@ footer { display: block; position: fixed; z-index: 1; left: 0em; bottom: 0em; ma
 .ab-c em { display: block; font-style: normal; font-size: 1.1em; }
 
 #video { display: none; position: absolute; top: 1em; left: 50%; margin: 0em 0em 0em -15.5em; padding: 1.5em; background: #e3e3e3; }
-#video button { position: relative; margin: 0.75em 0em 0em; padding-left: 2.8em; }
+#video button { display: block; position: relative; margin: 0.75em auto 0em; padding-left: 2.8em; }
 #video button em { position: absolute; top: 0.4em; left: 1.2em; font-style: normal; font-size: 1.4em; color: rgba(255, 255, 255, 0.7); }
 @-moz-document url-prefix() {
   #video button { padding-left: 1.8em; }
