@@ -5,7 +5,6 @@ $(function() {
   });
 
   $('#close-video').click(function() {
-    video.stop();
     $('#video').fadeOut();
   });
 });
