@@ -18,7 +18,7 @@ before do
   content_type :html, charset: 'utf-8'
 end
 
-get '/', agent: /(iPhone|iPod|webOS)/ do
+get '/', agent: /(iPhone|iPod|webOS|Android)/ do
   erb :app
 end
 
