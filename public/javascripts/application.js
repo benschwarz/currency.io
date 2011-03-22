@@ -172,8 +172,12 @@ var Calculator = {
 
 */
 
-if(navigator.standalone) {
-  
+if(navigator.standalone === undefined || !!navigator.standalone) {
+
+  if (navigator.userAgent.match(/Android/i)) {
+    window.addEventListener("load", function() { window.scrollTo(0,1); }, false);
+  }
+
   $('#wrapper').style.display = 'block';
   $('#install').style.display = 'none';
 
