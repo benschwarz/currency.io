@@ -9,11 +9,11 @@ var currencies = JSON.stringify({
   CAD: { name: "Canadian Dollar", symbol: "$", rate_usd: 1 },
   AUD: { name: "Australian Dollar", symbol: "$", rate_usd: 1 },
   JPY: { name: "Japanese Yen", symbol: "¥", rate_usd: 1 },
-  INR: { name: "Indian Rupee", symbol: "र", rate_usd: 1 },
+  KRW: { name: "South Korean Won", symbol: "₩", rate_usd: 1 },
   NZD: { name: "New Zealand Dollar", symbol: "$", rate_usd: 1 },
   CHF: { name: "Swiss Franc", symbol: "chf", rate_usd: 1 },
   SGD: { name: "Singapore Dollar", symbol: "$", rate_usd: 1 },
-  HKD: { name: "Hong Kong Dollar", symbol: "$", rate_usd: 1 }
+  HKD: { name: "Hong Kong Dollar", symbol: "$", rate_usd: 1, 1:0 }
 });
 
 if (!localStorage.currencies || localStorage.currencies.count(':') !== currencies.count(':')) {
