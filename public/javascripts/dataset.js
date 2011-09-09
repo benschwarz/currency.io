@@ -13,7 +13,7 @@ var currencies = JSON.stringify({
   NZD: { name: "New Zealand Dollar", symbol: "$", rate_usd: 1 },
   CHF: { name: "Swiss Franc", symbol: "chf", rate_usd: 1 },
   SGD: { name: "Singapore Dollar", symbol: "$", rate_usd: 1 },
-  HKD: { name: "Hong Kong Dollar", symbol: "$", rate_usd: 1, 1:0 }
+  HKD: { name: "Hong Kong Dollar", symbol: "$", rate_usd: 1 }
 });
 
 if (!localStorage.currencies || localStorage.currencies.count(':') !== currencies.count(':')) {
