@@ -1,31 +1,101 @@
-@font-face { font-family: 'inconsolata'; font-style: normal; font-weight: normal; src: local('Inconsolata'), url('http://themes.googleusercontent.com/font?kit=BjAYBlHtW3CJxDcjzrnZCCwlidHJgAgmTjOEEzwu1L8') format('truetype'); }
+/*                      *
+ *                      *
+ *    Non-iphone        *
+ *    website styles    *
+ *                      *
+ *                      */
 
-body { font-family: 'inconsolata', sans-serif; background: #f7f7f7; color: #002; line-height: 1.2; font-size: 75%; }
-.wrapper { width: 32em; margin: 0em auto; text-align: center; }
+@font-face {
+  font-family: 'inconsolata'; font-style: normal; font-weight: normal;
+  src: local('Inconsolata'),
+       url('http://themes.googleusercontent.com/font?kit=BjAYBlHtW3CJxDcjzrnZCCwlidHJgAgmTjOEEzwu1L8') format('truetype'); }
 
-#content { padding: 1.5em 2em 14em 3em; width: 24em; }
+body {
+  background: #f7f7f7; color: #002;
+  font-family: 'inconsolata', sans-serif; font-size: 75%; line-height: 1.2; }
+.wrapper {
+  width: 32em;
+  margin: 0em auto;
+  text-align: center; }
 
-h1 { height: 0em; overflow: hidden; padding-top: 8.6em; font-weight: normal; font-size: 1.6em; background: url('/images/logo.png') 50% 0% no-repeat; margin: 0em 0em 1em; }
-h2, p { font-weight: normal; font-size: 1.4em; margin: 0.4em 0em 0em; color: #445; }
-a { color: inherit; border-bottom: 0.1em solid; text-decoration: none; }
-button { font-family: 'inconsolata', sans-serif; font-size: 1.4em; margin: 1.6em 0em; background: #002; color: #f7f7f7; padding: 0.75em 1.8em; border: 0em; border-radius: 0.5em; cursor: pointer; letter-spacing: 0.1em; }
-button:hover { background: #c33; }
-button:active { background: #3c6; }
+#content {
+  width: 24em;
+  padding: 1.5em 2em 14em 3em; }
 
-footer { display: block; position: fixed; z-index: 1; left: 0em; bottom: 0em; margin: 0em; background: rgba(240, 240, 240, 0.85); width: 100%; padding: 0.5em 0em 1em; line-height: 1.4; }
-.highlight { margin: 0em 0em 0em -2em; padding: 0em; }
-.highlight em { font-style: normal; color: #fff; display: block; background: #c33; width: 11em; padding: 0.1em 0.2em; margin: 0.1em auto; 
+h1 {
+  overflow: hidden;
+  height: 0em;
+  margin: 0em 0em 1em; padding-top: 8.6em;
+  background: url('/images/logo.png') 50% 0% no-repeat;
+  font-size: 1.6em; font-weight: normal; }
+p,
+h2 {
+  margin: 0.4em 0em 0em;
+  color: #445;
+  font-weight: normal; font-size: 1.4em; }
+a {
+  color: inherit;
+  border-bottom: 0.1em solid;
+  text-decoration: none; }
+button {
+  margin: 1.6em 0em; padding: 0.75em 1.8em;
+  background: #002; color: #f7f7f7;
+  border: 0em; border-radius: 0.5em;
+  font-family: 'inconsolata', sans-serif; font-size: 1.4em; letter-spacing: 0.1em;
+  cursor: pointer; }
+button:hover {
+  background: #c33; }
+button:active {
+  background: #3c6; }
+
+footer {
+  display: block;
+  position: fixed; left: 0em; bottom: 0em; z-index: 1;
+  width: 100%;
+  margin: 0em; padding: 0.5em 0em 1em;
+  background: rgba(240, 240, 240, 0.85);
+  line-height: 1.4; }
+.highlight {
+  margin: 0em 0em 0em -2em; padding: 0em; }
+.highlight em {
+  display: block;
+  width: 11em;
+  padding: 0.1em 0.2em; margin: 0.1em auto;
+  background: #c33; color: #fff;
+  font-style: normal;
   border-radius: 0.5em; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em; -o-border-radius: 0.5em; }
-.highlight strong { font-weight: normal; color: #002; }
+.highlight strong { color: #002;
+  font-weight: normal; }
 
-.ab-c { margin: 0.75em 0em 0em -2em; padding: 0.75em 0em 0em; font-family: 'Andale Mono', 'Courier New', courier; font-size: 1em; color: #999; border-top: 1px dotted #ccc; line-height: 1.1; }
-.ab-c em { display: block; font-style: normal; font-size: 1.1em; }
+.ab-c {
+  margin: 0.75em 0em 0em -2em; padding: 0.75em 0em 0em;
+  color: #999;
+  border-top: 1px dotted #ccc;
+  font-family: 'Andale Mono', 'Courier New', courier; font-size: 1em; line-height: 1.1; }
+.ab-c em {
+  display: block;
+  font-style: normal; font-size: 1.1em; }
 
-#video { position: absolute; top: -48em; left: 50%; margin: 0em 0em 0em -15.5em; padding: 1.5em; background: #e3e3e3; }
-#video button { display: block; position: relative; width: 7.8em; margin: 0.75em auto 0em; padding-left: 2.8em; }
-#video button em { position: absolute; top: 0.4em; left: 1.2em; font-style: normal; font-size: 1.4em; color: rgba(255, 255, 255, 0.7); }
+#video {
+  position: absolute; top: -48em; left: 50%;
+  margin: 0em 0em 0em -15.5em; padding: 1.5em;
+  background: #e3e3e3; }
+#video button {
+  display: block;
+  position: relative;
+  width: 7.8em;
+  margin: 0.75em auto 0em; padding-left: 2.8em; }
+#video button em {
+  position: absolute; top: 0.4em; left: 1.2em;
+  font-style: normal; font-size: 1.4em;
+  color: rgba(255, 255, 255, 0.7); }
+
+/*  Mozilla-specfic layout hack  */
 @-moz-document url-prefix() {
-  #video button { padding-left: 1.8em; }
-  #video button em { display: none; }
+  #video button {
+    padding-left: 1.8em; }
+  #video button em {
+    display: none; }
 }
-video { display: block; }
+video {
+  display: block; }

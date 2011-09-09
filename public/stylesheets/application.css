@@ -1,106 +1,310 @@
-/*  Generic styles  */
+/*                      *
+ *                      *
+ *    Generic styles    *
+ *                      *
+ *                      */
 
-html { background: #fff; }
-body { width: 31.9em; margin: 0em auto; padding: 0em; font-family: "Helvetica Neue", sans-serif; color: #555; font-weight: bold; text-align: right; }
-body * { -webkit-user-select: none; }
-section { display: block; }
-em { font-style: normal; }
-h1, h2 { font-size: 1em; margin: 0em; padding: 0em; }
-button { font-family: "Helvetica Neue", sans-serif; background: #fff; border: transparent; font-size: 0.9em; padding: 0px; color: inherit; }
-div#wrapper { display: none; width: 31.9em; height: 48em; margin: 0em; overflow: hidden; position: relative; }
+html {
+  background: #fff; }
+body {
+  width: 31.9em;
+  margin: 0em auto; padding: 0em;
+  color: #555;
+  font-family: "Helvetica Neue", sans-serif; font-weight: bold; text-align: right; }
+body * {
+  -webkit-user-select: none; }
+section {
+  display: block; }
+em {
+  font-style: normal; }
+h1, h2 {
+  margin: 0em; padding: 0em;
+  font-size: 1em; }
+button {
+  padding: 0px;
+  background: #fff; color: inherit;
+  border: transparent;
+  font-family: "Helvetica Neue", sans-serif; font-size: 0.9em; }
+div#wrapper {
+  display: none;
+  position: relative; overflow: hidden;
+  width: 31.9em; height: 48em;
+  margin: 0em; }
 
-/*  Converter */
+/*                      *
+ *                      *
+ *    The Converter     *
+ *                      *
+ *                      */
 
-#converter { position: absolute; width: 100%; }
+#converter {
+  position: absolute;
+  width: 100%; }
 
-#network-status { position: absolute; left: 4px; text-align: center; padding: 1em 0em 1em; margin: 0.65em 0em 0em; font-weight: normal; font-size: 0.9em; color: #888; }
-.online:before { content: '\2713\0020'; color: green; font-weight: bold; }
-.offline:before { content: '\2715\0020'; color: red; font-weight: bold; }
+#network-status {
+  position: absolute; left: 4px;
+  text-align: center;
+  padding: 1em 0em 1em; margin: 0.65em 0em 0em;
+  color: #888;
+  font-weight: normal; font-size: 0.9em; }
+.online:before {
+  /*  Unicode tick */
+  content: '\2713\0020';
+  color: green;
+  font-weight: bold; }
+.offline:before {
+  /*  Unicode cross  */
+  content: '\2715\0020';
+  color: red;
+  font-weight: bold; }
 
-#rates { font-size: 1.8em; margin: 0.5em 0em; text-align: center; }
-#rates em { font-size: 0.9em; color: #aaa; margin: -0.1em 0.1em 0em; }
+#rates {
+  margin: 0.5em 0em;
+  font-size: 1.8em; text-align: center; }
+#rates em {
+  margin: -0.1em 0.1em 0em;
+  color: #aaa;
+  font-size: 0.9em; }
 
-#input, #output { border-top: 1px solid #f3f3f3; margin: 0em; padding: 0.4em 0.5em 1em 0em; position: relative; cursor: pointer; background: transparent none 2% 47% no-repeat; }
-#output { margin: 0em 0em 0.7em; }
+#input,
+#output {
+  position: relative;
+  margin: 0em; padding: 0.4em 0.5em 1em 0em;
+  border-top: 1px solid #f3f3f3;
+  background: transparent none 2% 47% no-repeat;
+  cursor: pointer; }
+#output {
+  margin: 0em 0em 0.7em; }
 
-#input.touched, #output.touched { background-color: #cfc; }
+#input.touched,
+#output.touched {
+  background-color: #cfc; }
 
-#input h2, #output h2 { font-size: 1.1em; color: #999; line-height: 0.5; padding: 0em 0.2em 0em; }
-#input h1, #output h1 { font-size: 4.7em; padding: 0em 0em 0.1em; letter-spacing: 0.02em; }
-#input h2 em, #output h2 em { color: #ccc; left: -0.3em; }
+#input h2,
+#output h2 {
+  padding: 0em 0.2em 0em;
+  color: #999;
+  font-size: 1.1em; line-height: 0.5; }
+#input h1,
+#output h1 {
+  padding: 0em 0em 0.1em;
+  font-size: 4.7em;
+  letter-spacing: 0.02em; }
+#input h2 em,
+#output h2 em {
+  left: -0.3em;
+  color: #ccc; }
 
-button { font-size: 0.7em; background: #999; color: #fff; padding: 0.3em 0.5em; border-radius: 3px; font-weight: normal; }
-#flip, #save { padding: 1em; position: relative; top: -1em; left: -1em; cursor: pointer; }
-#flip { position: absolute; top: auto; padding: 1.5em 1.3em; margin: -2.3em 0em 0em 0em; z-index: 1; }
-#flip button { text-transform: uppercase; letter-spacing: 0.1em; }
-#save button { display: inline; position: relative; top: 0.25em; color: #fff; font-size: 0.7em; margin: 0.8em 0em 0em; padding: 0.3em 1.4em; border-radius: 0.4em;
+button {
+  padding: 0.3em 0.5em;
+  font-size: 0.7em;
+  background: #999; color: #fff;
+  border-radius: 3px;
+  font-weight: normal; }
+#flip,
+#save {
+  position: relative; top: -1em; left: -1em;
+  padding: 1em;
+  cursor: pointer; }
+#flip {
+  position: absolute; z-index: 1;
+  top: auto;
+  padding: 1.5em 1.3em; margin: -2.3em 0em 0em 0em; }
+#flip button {
+  text-transform: uppercase; letter-spacing: 0.1em; }
+#save button {
+  display: inline;
+  position: relative; top: 0.25em;
+  color: #fff;
+  margin: 0.8em 0em 0em; padding: 0.3em 1.4em;
+  font-size: 0.7em;
+  border-radius: 0.4em;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.2, #04D7a3), color-stop(0.5, #05CE99), color-stop(0.51, #04D7a3), color-stop(1, #04D7a3)); }
 
-#flip.touched button { background: #555; }
-#save.touched button { background: #3F9979 none; }
+#flip.touched button {
+  background: #555; }
+#save.touched button {
+  background: #3F9979 none; }
 
-/*  Input pad */
+/*                      *
+ *                      *
+ *    Input Pad         *
+ *                      *
+ *                      */
 
-#input-pad { background: #f2f2f2 none top left repeat-x; float: left; width: 105%; margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%; }
-#input-pad p { float: left; width: 22%; padding: 0.7em 0em; margin: 1.2% 0%; font-size: 2.7em; cursor: pointer; text-align: center; }
-#input-pad #clear { background: none 50% 30% no-repeat; font-size: 1.4em; padding-top: 2.45em; }
+#input-pad {
+  float: left;
+  width: 105%;
+  margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%;
+  background: #f2f2f2 none top left repeat-x; }
+#input-pad p {
+  float: left;
+  width: 22%;
+  padding: 0.7em 0em; margin: 1.2% 0%;
+  font-size: 2.7em; text-align: center;
+  cursor: pointer; }
+#input-pad #clear {
+  background: none 50% 30% no-repeat;
+  padding-top: 2.45em;
+  font-size: 1.4em; }
 
-/*  Currency selection  */
+/*                      *
+ *                      *
+ *    Currency          *
+ *    selection         *
+ *                      *
+ *                      */
 
-#rate-selection { background: #f0f0f0; position: absolute; height: 100%; overflow: hidden; top: 0%; left: -105%; z-index: 1; margin: 0% 0% 0% -2%; font-size: 1.5em; padding: 0em; text-align: center; width: 105%; }
-#rate-selection ul { display: block; clear: both; list-style: none; margin: 0.5em 3% 0em 7.5%; padding: 0em; position: relative; left: -3%; }
-#rate-selection li { position: relative; display: block; border-top: 0.1em solid #ddd; padding: 0.7em 0em; top: -0.1em; }
-#rate-selection li:first-child { border: 0em; }
-#rate-selection li a.touched { background-color: rgba(0, 255, 0, 0.2); }
-#rate-selection a { position: absolute; top: 0.75em; left: 0em; right: 0em; text-decoration: none; padding: 0.75em 0em; margin: -0.75em 0em 0em; opacity: 0; }
-#rate-selection em { color: #bbb; }
+#rate-selection {
+  position: absolute; top: 0%; left: -105%; z-index: 1;
+  width: 105%; height: 100%;
+  overflow: hidden;
+  margin: 0% 0% 0% -2%; padding: 0em;
+  background: #f0f0f0;
+  font-size: 1.5em; text-align: center; }
+#rate-selection ul {
+  display: block; clear: both;
+  position: relative; left: -3%;
+  list-style: none;
+  margin: 0.5em 3% 0em 7.5%; padding: 0em; }
+#rate-selection li {
+  display: block;
+  position: relative; top: -0.1em;
+  padding: 0.7em 0em;
+  border-top: 0.1em solid #ddd; }
+#rate-selection li:first-child {
+  border: 0em; }
+#rate-selection li a.touched {
+  background-color: rgba(0, 255, 0, 0.2); }
+#rate-selection a {
+  position: absolute; top: 0.75em; left: 0em; right: 0em;
+  padding: 0.75em 0em; margin: -0.75em 0em 0em;
+  text-decoration: none;
+  opacity: 0; }
+#rate-selection em {
+  color: #bbb; }
 
-#rate-selection li.selected { background-color: #69f; }
-#rate-selection a.selected { background-repeat: no-repeat; background-position: 5% 50%; }
+#rate-selection li.selected {
+  background-color: #69f; }
+#rate-selection a.selected {
+  background-repeat: no-repeat; background-position: 5% 50%; }
 
-/* Animation  */
+/*                      *
+ *                      *
+ *    Animation         *
+ *                      *
+ *                      */
+#converter, #rate-selection {
+  -webkit-transition: left 370ms; }
+body[class*="edit-rates-"] #rate-selection {
+  left: 0%; }
+body[class*="edit-rates-"] #converter {
+  left: 105%; }
 
-#converter, #rate-selection { -webkit-transition: left 370ms; }
-body[class*="edit-rates-"] #rate-selection { left: 0%; }
-body[class*="edit-rates-"] #converter { left: 105%; }
+#rate-selection a {
+  -webkit-transition: opacity 370ms; }
+.edit-rates-from #rate-selection a[id*="from-"] {
+  display: block;
+  opacity: 1; }
+.edit-rates-from #rate-selection a[id*="to-"] {
+  display: none; }
+.edit-rates-to #rate-selection a[id*="to-"] {
+  display: block;
+  opacity: 1; }
+.edit-rates-to #rate-selection a[id*="from-"] {
+  display: none; }
 
-#rate-selection a { -webkit-transition: opacity 370ms; }
-.edit-rates-from #rate-selection a[id*="from-"] { display: block; opacity: 1; }
-.edit-rates-from #rate-selection a[id*="to-"] { display: none; }
-.edit-rates-to #rate-selection a[id*="to-"] { display: block; opacity: 1; }
-.edit-rates-to #rate-selection a[id*="from-"] { display: none; }
+#wrapper {
+  -webkit-perspective: 1000; }
+#flippable {
+  -webkit-transition-duration: 300ms; -webkit-backface-visibility: hidden; }
+.flip #flippable {
+  -webkit-transform: rotateX(180deg); }
 
-#wrapper { -webkit-perspective: 1000; }
-#flippable { -webkit-transition-duration: 300ms; -webkit-backface-visibility: hidden; }
-.flip #flippable { -webkit-transform: rotateX(180deg); }
+/*  Non-app layouts     */
 
-/*  Credits */
+/*                      *
+*                       *
+*    Credits page       *
+*                       *
+*                       */
 
-#credits { display: none; position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3; background: #fff none 50% 50% no-repeat; }
-#credits a { display: block; width: 100%; height: 100%; }
-.credits #credits { display: block; }
+#credits {
+  display: none;
+  position: absolute; top: 0em; right: 0em; bottom: 0em; left: 0em; z-index: 3;
+  background: #fff none 50% 50% no-repeat; }
+#credits a {
+  display: block;
+  width: 100%; height: 100%; }
+.credits #credits {
+  display: block; }
 
-/*  Installation screen */
+/*                      *
+*                       *
+*    Installation page  *
+*                       *
+*                       */
 
-#install { display: none; position: absolute; top: 0em; left: 0em; right: 0em; bottom: 0em; background: #f7f7f7; color: #002; text-align: center; line-height: 1.3; }
+#install {
+  display: none;
+  position: absolute; top: 0em; left: 0em; right: 0em; bottom: 0em;
+  background: #f7f7f7; color: #002;
+  text-align: center; line-height: 1.3; }
 
-#install h1 { height: 10.5em; width: 16em; margin: 0.5em auto; text-indent: -8em; text-align: left; overflow: hidden; background-size: 100px 100px; background: url('/images/logo.png') 50% 0% no-repeat; }
-#install h2 { font-size: 1.9em; width: 16em; margin: 0.4em auto; }
-#install > p { font-size: 1.4em; margin: 0.5em 0em 0em; color: #445; font-weight: normal; width: 16em; margin: 0em auto; }
+#install h1 {
+  overflow: hidden;
+  width: 16em; height: 10.5em;
+  margin: 0.5em auto;
+  background-size: 100px 100px; background: url('/images/logo.png') 50% 0% no-repeat;
+  text-indent: -8em; text-align: left; }
+#install h2 {
+  width: 16em;
+  margin: 0.4em auto;
+  font-size: 1.9em; }
+#install > p {
+  width: 16em;
+  margin: 0em auto;
+  color: #445;
+  font-size: 1.4em; font-weight: normal; }
 
-#install-wrapper { position: absolute; bottom: 0.8em; left: 50%; margin-left: -7em; width: 12em; background: #222; font-size: 1.6em; padding: 0.8em 1em 0.2em; text-align: center; line-height: 1.3;
+#install-wrapper {
+  position: absolute; bottom: 0.8em; left: 50%;
+  width: 12em;
+  margin-left: -7em; padding: 0.8em 1em 0.2em;
+  font-size: 1.6em; text-align: center; line-height: 1.3;
+  background: #222;
   border-radius: 0.3em; -webkit-border-radius: 0.3em;
   box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); }
-#install-wrapper:after { position: absolute; left: 5.8em; bottom: -0.4em; content: ' '; border: 1.2em solid #222; width: 0em; height: 0em; border-bottom: none; border-left: 1.2em solid transparent; border-right: 1.2em solid transparent; }
-#install-wrapper p { color: #bbb; margin: 0em 0em 0.8em; }
-#install-wrapper em { color: #fff; white-space: nowrap; }
-#add-button { width: 24px; height: 22px; display: inline-block; background: transparent none 50% 50% no-repeat; }
+#install-wrapper:after {
+  position: absolute; left: 5.8em; bottom: -0.4em;
+  content: ' ';
+  width: 0em; height: 0em;
+  border: 1.2em solid #222; border-bottom: none; border-left: 1.2em solid transparent; border-right: 1.2em solid transparent; }
+#install-wrapper p {
+  color: #bbb;
+  margin: 0em 0em 0.8em; }
+#install-wrapper em {
+  color: #fff;
+  white-space: nowrap; }
+#add-button {
+  display: inline-block;
+  width: 24px; height: 22px;
+  background: transparent none 50% 50% no-repeat; }
 
-/*  iPhone-specfic styles  */
+/*                      *
+*                       *
+*    iPhone-specific   *
+*                       *
+*                       */
 
 @media only screen and (max-device-width: 480px) {
-  body { font-size: 62.5%; }
-  p span { font-size: 1.3em; margin: 0em -0.15em 0em 0em; }
-  #input h1, #output h1 { letter-spacing: 0.02em; }
-  #add-button { position: relative; top: 0.15em; }
+  body {
+    font-size: 62.5%; }
+  p span {
+    font-size: 1.3em;
+    margin: 0em -0.15em 0em 0em; }
+  #input h1, #output h1 {
+    letter-spacing: 0.02em; }
+  #add-button {
+    position: relative; top: 0.15em; }
 }
