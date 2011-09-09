@@ -1,49 +1,49 @@
+// Click/touch abstraction event
+// Extending the object prototype directly is never a good idea, but we can
+// rely on it in this small scope
 Object.prototype.touch = function(func) {
   var target, func;
-
   if (window.Touch){
     this.addEventListener('touchstart', function(e){
       e.preventDefault();
-
       if (!e.touches || e.touches.length > 1) return;
       target = this;
-      this.className += ' touched';
+      addClass(this, 'touched');
     }, false);
-
     window.addEventListener('touchend', function(e){
-      if (target) target.className = target.className.replace(/\stouched/, '');
+      if (target) removeClass(target, 'touched');
     });
-
     this.addEventListener('touchend', function(e){
       e.preventDefault();
-
       if (func) func.apply(this, [e]);
     }, false);
   } else {
     this.addEventListener('click', func);
   }
-
 }
 
+/*  Add/remove class implementation  */
 var addClass = function(element, className) {
   var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
   if (re.test(element.className)) return;
   element.className += ' ' + className;
 }
-
 var removeClass = function(element, className) {
   var re = new RegExp('(\\s|^)'+className+'(\\s|$)');
   element.className = element.className.replace(re,' ');
 }
 
+/*  querySelectorAll shortcut method  */
 var $ = function(q, e) {
   var e = e || document,
       match = e.querySelectorAll(q);
+  // If there is only one match, return the object directly,
+  // otherwise return the full NodeList
   return match.length > 1 ? match : match[0];
 }
 
 var Converter = {
-
+  // Create the list of currencies dynamically from the dataset provided
   draw_currencies: function() {
     var html = '',
         currencies = window.currencies;
@@ -61,6 +61,7 @@ var Converter = {
     $('#rate-selection ul').innerHTML = html;
   },
 
+  // Update the highlighted currencies in the currency selection list
   highlight_currencies: function(from_id, to_id) {
     window.from_to.from = from_id;
     window.from_to.to = to_id;
@@ -73,6 +74,7 @@ var Converter = {
     $('#to-'+to_id).className = 'selected';
   },
 
+  // Update the currency conversion display
   update_currency_display: function(from_id, to_id) {
     var from_id = from_id || window.from_to.from,
         to_id = to_id || window.from_to.to,
@@ -92,7 +94,10 @@ var Converter = {
     Calculator.add('');
   },
 
-  update_currencies: function() {
+  // 
+  update_rates: function() {
+    // Make an ajax call to get the latest exchange rates from the server
+    // Use the rates from localStorage if offline
     if (!navigator.onLine) return;
 
     var currencies = [];
@@ -101,6 +106,7 @@ var Converter = {
       currencies.push(currency);
     }
 
+    // Async request for currencies
     var r = new XMLHttpRequest();
     r.open('POST', '/exchange?currencies='+currencies.toString(), true);
     r.send(null);
@@ -114,7 +120,6 @@ var Converter = {
               window.currencies[key].rate_usd = data[key];
             }
           }
-
           localStorage.currencies = JSON.stringify(window.currencies);
           Converter.update_currency_display();
         } else {
@@ -126,6 +131,7 @@ var Converter = {
   }
 }
 
+/*  Used to handle all the mathematical calculations */
 var Calculator = {
   input: $('#input h1'),
   output: $('#output h1'),
@@ -139,7 +145,8 @@ var Calculator = {
   update_values: function(value) {
     var value = !value ? 0 : this.strip_commas(value),
         output_value = (isNaN(value)) ? '0.00' : (value * this.rate).toFixed(2);
-
+    // Prevent numbers overlapping the allowed space
+    // Let a line-length of 9 or less through
     if (value.length > 9 || output_value.length > 9) return;
 
     this.input.innerHTML = this.add_commas(value);
@@ -154,9 +161,12 @@ var Calculator = {
     var re = /(\d+)(\d{3,3})/,
         split = (''+num).split('.'),
         num = split[0],
+        // Split off the decimals
         decimals = split[1] !== undefined ? '.'+split[1] : '';
 
+    // Inject commas into the number
     while (re.test(num)) num = num.replace(re, '$1,$2');
+    // Put the decimals back at the end
     return num + decimals;
   },
 
@@ -166,27 +176,25 @@ var Calculator = {
 
 }
 
-/*
-
-  Handle button events
-
-*/
-
+/*  Initialisation / Button events  */
+// If added to home screen...
 if(navigator.standalone === undefined || !!navigator.standalone) {
 
+  // On Android scroll the screen by 1 pixel to hide the address bar
   if (navigator.userAgent.match(/Android/i)) {
     window.addEventListener("load", function() { window.scrollTo(0,1); }, false);
   }
 
+  // Show the converter & hide the install option by default
   $('#wrapper').style.display = 'block';
   $('#install').style.display = 'none';
 
+  // Calculator button events
   var buttons = $('#input-pad p');
   for (var i = 0, ii = buttons.length; i < ii; i++) {
     if (!!buttons[i].id.length) continue;
     buttons[i].touch(function() { Calculator.add(this.innerText); });
   }
-
   $('#clear').touch(function(e) {
     Calculator.clear();
   });
@@ -198,6 +206,7 @@ if(navigator.standalone === undefined || !!navigator.standalone) {
     addClass($('body'), 'edit-rates-to');
   });
 
+  // Flip currencies
   $('#flip').touch(function(e) {
     addClass($('body'), 'flip');
     setTimeout(function() {
@@ -210,8 +219,10 @@ if(navigator.standalone === undefined || !!navigator.standalone) {
     setTimeout(function() { removeClass($('body'), 'flip'); }, 275);
   });
 
+  // Draw the currency list
   Converter.draw_currencies();
 
+  // Currency selection events
   var rates = $('#rate-selection a');
   for (var i = 0, ii = rates.length; i < ii; i++) {
     rates[i].touch(function(e) {
@@ -225,6 +236,7 @@ if(navigator.standalone === undefined || !!navigator.standalone) {
     });
   }
 
+  // Show the credits screen when in landscape orientation
   var detectOrientation = function() {
     if (window.orientation) addClass($('body'), 'credits');
     else removeClass($('body'), 'credits');
@@ -232,18 +244,23 @@ if(navigator.standalone === undefined || !!navigator.standalone) {
   detectOrientation();
   window.addEventListener('orientationchange', detectOrientation);
 
+  // If working in offline mode, update the display to reflect this
   if (!navigator.onLine) $('#network-status').className = 'offline';
 
+  // Update the currency display on load
   Converter.update_currency_display();
-  setTimeout(function() { Converter.update_currencies(); }, 100);
+  // Delay making the ajax request to update the exchange rates
+  // This prevents the app locking up while the request is made
+  setTimeout(function() { Converter.update_rates(); }, 100);
 
+  // Update the app cache when ready
   window.applicationCache.addEventListener('updateready', function(){
     window.applicationCache.swapCache();
   }, false);
 
+// If opened in mobile safari directly,
 } else {
-
+  // show the install screen
   $('#wrapper').style.display = 'none';
   $('#install').style.display = 'block';
-
 } 
