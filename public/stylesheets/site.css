@@ -18,6 +18,9 @@ body {
   margin: 0em auto;
   text-align: center; }
 
+video {
+  display: block; }
+
 #content {
   width: 24em;
   padding: 1.5em 2em 14em 3em; }
@@ -37,15 +40,22 @@ a {
   color: inherit;
   border-bottom: 0.1em solid;
   text-decoration: none; }
-button {
-  margin: 1.6em 0em; padding: 0.75em 1.8em;
+.buttons {
+  margin: 2em 0em;
+}
+button,
+.button {
+  display: inline-block;
+  margin: 0.3em 0em 0em; padding: 0.75em 1.8em;
   background: #002; color: #f7f7f7;
   border: 0em; border-radius: 0.5em;
   font-family: 'inconsolata', sans-serif; font-size: 1.4em; letter-spacing: 0.1em;
   cursor: pointer; }
-button:hover {
+button:hover,
+.button:hover {
   background: #c33; }
-button:active {
+button:active,
+.button:active {
   background: #3c6; }
 
 footer {
@@ -64,7 +74,8 @@ footer {
   background: #c33; color: #fff;
   font-style: normal;
   border-radius: 0.5em; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em; -o-border-radius: 0.5em; }
-.highlight strong { color: #002;
+.highlight strong {
+  color: #002;
   font-weight: normal; }
 
 .ab-c {
@@ -97,5 +108,3 @@ footer {
   #video button em {
     display: none; }
 }
-video {
-  display: block; }
