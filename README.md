@@ -18,7 +18,7 @@ Currencies are pulled over HTTP from Yahoo's Finance services, the interesting a
 ### Other notes
 We're using an image to do the small drop shadows rather than using `box-shadow`, which turns out to be horrible for mobile browser performance.
 
-We've designed everything using `em`s, which is really useful as this means you can scale everything up by 150% and test it in Chrome or Safari. Much less hassle than testing directly in the iOS Simulator.
+We've designed everything using `em`s, which is really useful as this means you can scale everything up by 150% and test it in Chrome or Safari (just be sure to set your user-agent string to iPhone or something supported). Much less hassle than testing directly in the iOS Simulator.
 
 Developing strictly for Android/iOS kicks ass.
 * No need for graceful degradation
