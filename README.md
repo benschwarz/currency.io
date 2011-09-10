@@ -16,9 +16,9 @@ The app itself is running on Sinatra. It doesn't do anything fancy, it's just th
 Currencies are pulled over HTTP from Yahoo's Finance services, the interesting aspect of this is that we [used YQL](http://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20%28%27USD%27%2C%20%27AUD%27%29) to do so. 
 
 #### Other notes
-We're using an image to do the small drop shadows rather than using `box-shadow`, which turns out to be horrible for mobile browser performance.
+We're using an image to do the small drop shadows rather than using `box-shadow`, which turns out to be horrible for performance.
 
-We've designed everything using `em`s, which is really useful as this means you can scale everything up by 150% and test it in Chrome or Safari (just be sure to set your user-agent string to iPhone or something supported). Much less hassle than testing directly in the iOS Simulator.
+We've designed everything using `em`s, which means you can scale everything up 150% and test it in Chrome or Safari (just be sure to set your user-agent string to iPhone or something supported). Much less hassle than testing directly in the iOS Simulator.
 
 Developing strictly for Android/iOS kicks ass.
 * No need for graceful degradation
