@@ -1,9 +1,9 @@
-/*                      *
- *                      *
- *    Non-iphone        *
- *    website styles    *
- *                      *
- *                      */
+/*
+
+      Non-iphone
+      website styles
+
+                        */
 
 @font-face {
   font-family: 'inconsolata'; font-style: normal; font-weight: normal;
@@ -14,21 +14,18 @@ body {
   background: #f7f7f7; color: #002;
   font-family: 'inconsolata', sans-serif; font-size: 75%; line-height: 1.2; }
 .wrapper {
-  width: 32em;
-  margin: 0em auto;
+  width: 32em; margin: 0em auto;
   text-align: center; }
 
 video {
   display: block; }
 
 #content {
-  width: 24em;
-  padding: 1.5em 2em 14em 3em; }
+  width: 24em; padding: 1.5em 2em 14em 3em; }
 
 h1 {
   overflow: hidden;
-  height: 0em;
-  margin: 0em 0em 1em; padding-top: 8.6em;
+  height: 0em; margin: 0em 0em 1em; padding-top: 8.6em;
   background: url('/images/logo.png') 50% 0% no-repeat;
   font-size: 1.6em; font-weight: normal; }
 p,
@@ -61,16 +58,14 @@ button:active,
 footer {
   display: block;
   position: fixed; left: 0em; bottom: 0em; z-index: 1;
-  width: 100%;
-  margin: 0em; padding: 0.5em 0em 1em;
+  width: 100%; margin: 0em; padding: 0.5em 0em 1em;
   background: rgba(240, 240, 240, 0.85);
   line-height: 1.4; }
 .highlight {
   margin: 0em 0em 0em -2em; padding: 0em; }
 .highlight em {
   display: block;
-  width: 11em;
-  padding: 0.1em 0.2em; margin: 0.1em auto;
+  width: 11em; padding: 0.1em 0.2em; margin: 0.1em auto;
   background: #c33; color: #fff;
   font-style: normal;
   border-radius: 0.5em; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em; -o-border-radius: 0.5em; }
@@ -80,8 +75,7 @@ footer {
 
 .ab-c {
   margin: 0.75em 0em 0em -2em; padding: 0.75em 0em 0em;
-  color: #999;
-  border-top: 1px dotted #ccc;
+  color: #999; border-top: 1px dotted #ccc;
   font-family: 'Andale Mono', 'Courier New', courier; font-size: 1em; line-height: 1.1; }
 .ab-c em {
   display: block;
@@ -94,8 +88,7 @@ footer {
 #video button {
   display: block;
   position: relative;
-  width: 7.8em;
-  margin: 0.75em auto 0em; padding-left: 2.8em; }
+  width: 7.8em; margin: 0.75em auto 0em; padding-left: 2.8em; }
 #video button em {
   position: absolute; top: 0.4em; left: 1.2em;
   font-style: normal; font-size: 1.4em;

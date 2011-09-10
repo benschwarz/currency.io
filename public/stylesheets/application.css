@@ -1,41 +1,59 @@
-/*                      *
- *                      *
- *    Generic styles    *
- *                      *
- *                      */
+/*
+
+      Format
+      -------------------
+      selector1,
+      selector2 {
+        display
+        content
+        position, top, left, z-index
+        width, height, padding, margin
+        background, color, border
+        font, text-align, line-height, text-transform, letter-spacing
+        cursor, pointer-events
+        box-shadow
+        border-radius
+        etc. }
+
+                        */
+
+
+/*
+
+      Generic styles
+
+                        */
 
 html {
   background: #fff; }
 body {
-  width: 31.9em;
-  margin: 0em auto; padding: 0em;
+  width: 31.9em; margin: 0em auto; padding: 0em;
   color: #555;
-  font-family: "Helvetica Neue", sans-serif; font-weight: bold; text-align: right; }
+  font-weight: bold; text-align: right; font-family: "Helvetica Neue", sans-serif; }
 body * {
   -webkit-user-select: none; }
 section {
   display: block; }
 em {
   font-style: normal; }
-h1, h2 {
+h1,
+h2 {
   margin: 0em; padding: 0em;
   font-size: 1em; }
 button {
   padding: 0px;
-  background: #fff; color: inherit;
-  border: transparent;
-  font-family: "Helvetica Neue", sans-serif; font-size: 0.9em; }
+  background: #fff; border: transparent; color: inherit;
+  font-size: 0.9em; font-family: "Helvetica Neue", sans-serif; }
 div#wrapper {
-  display: none;
-  position: relative; overflow: hidden;
-  width: 31.9em; height: 48em;
-  margin: 0em; }
+  display: none; overflow: hidden;
+  position: relative;
+  width: 31.9em; height: 48em; margin: 0em; }
 
-/*                      *
- *                      *
- *    The Converter     *
- *                      *
- *                      */
+/*
+
+      The Converter
+
+                        */
 
 #converter {
   position: absolute;
@@ -43,10 +61,9 @@ div#wrapper {
 
 #network-status {
   position: absolute; left: 4px;
-  text-align: center;
   padding: 1em 0em 1em; margin: 0.65em 0em 0em;
   color: #888;
-  font-weight: normal; font-size: 0.9em; }
+  text-align: center; font-weight: normal; font-size: 0.9em; }
 .online:before {
   /*  Unicode tick */
   content: '\2713\0020';
@@ -70,8 +87,7 @@ div#wrapper {
 #output {
   position: relative;
   margin: 0em; padding: 0.4em 0.5em 1em 0em;
-  border-top: 1px solid #f3f3f3;
-  background: transparent none 2% 47% no-repeat;
+  border-top: 1px solid #f3f3f3; background: transparent none 2% 47% no-repeat;
   cursor: pointer; }
 #output {
   margin: 0em 0em 0.7em; }
@@ -88,8 +104,7 @@ div#wrapper {
 #input h1,
 #output h1 {
   padding: 0em 0em 0.1em;
-  font-size: 4.7em;
-  letter-spacing: 0.02em; }
+  font-size: 4.7em; letter-spacing: 0.02em; }
 #input h2 em,
 #output h2 em {
   left: -0.3em;
@@ -97,75 +112,69 @@ div#wrapper {
 
 button {
   padding: 0.3em 0.5em;
-  font-size: 0.7em;
   background: #999; color: #fff;
-  border-radius: 3px;
-  font-weight: normal; }
-#flip,
-#save {
+  font-size: 0.7em; font-weight: normal;
+  border-radius: 3px; }
+#save,
+#flip {
   position: relative; top: -1em; left: -1em;
   padding: 1em;
   cursor: pointer; }
 #flip {
-  position: absolute; z-index: 1;
-  top: auto;
+  position: absolute; top: auto; z-index: 1;
   padding: 1.5em 1.3em; margin: -2.3em 0em 0em 0em; }
 #flip button {
   text-transform: uppercase; letter-spacing: 0.1em; }
 #save button {
   display: inline;
   position: relative; top: 0.25em;
-  color: #fff;
   margin: 0.8em 0em 0em; padding: 0.3em 1.4em;
+  color: #fff; background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.2, #04D7a3), color-stop(0.5, #05CE99), color-stop(0.51, #04D7a3), color-stop(1, #04D7a3));
   font-size: 0.7em;
-  border-radius: 0.4em;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.2, #04D7a3), color-stop(0.5, #05CE99), color-stop(0.51, #04D7a3), color-stop(1, #04D7a3)); }
+  border-radius: 0.4em; }
 
 #flip.touched button {
   background: #555; }
 #save.touched button {
   background: #3F9979 none; }
 
-/*                      *
- *                      *
- *    Input Pad         *
- *                      *
- *                      */
+/*
+
+      Input Pad
+
+                        */
 
 #input-pad {
   float: left;
-  width: 105%;
-  margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%;
+  width: 105%; margin: 2% 0% 0% -1%; padding: 1.5% 0% 5% 5%;
   background: #f2f2f2 none top left repeat-x; }
 #input-pad p {
   float: left;
-  width: 22%;
-  padding: 0.7em 0em; margin: 1.2% 0%;
+  width: 22%; padding: 0.7em 0em; margin: 1.2% 0%;
   font-size: 2.7em; text-align: center;
   cursor: pointer; }
 #input-pad #clear {
-  background: none 50% 30% no-repeat;
   padding-top: 2.45em;
+  background: none 50% 30% no-repeat;
   font-size: 1.4em; }
 
-/*                      *
- *                      *
- *    Currency          *
- *    selection         *
- *                      *
- *                      */
+/*
+
+      Currency
+      selection
+
+                        */
 
 #rate-selection {
   position: absolute; top: 0%; left: -105%; z-index: 1;
-  width: 105%; height: 100%;
   overflow: hidden;
-  margin: 0% 0% 0% -2%; padding: 0em;
+  width: 105%; height: 100%; margin: 0% 0% 0% -2%; padding: 0em;
   background: #f0f0f0;
   font-size: 1.5em; text-align: center; }
 #rate-selection ul {
+  list-style: none;
   display: block; clear: both;
   position: relative; left: -3%;
-  list-style: none;
   margin: 0.5em 3% 0em 7.5%; padding: 0em; }
 #rate-selection li {
   display: block;
@@ -177,10 +186,10 @@ button {
 #rate-selection li a.touched {
   background-color: rgba(0, 255, 0, 0.2); }
 #rate-selection a {
+  opacity: 0;
   position: absolute; top: 0.75em; left: 0em; right: 0em;
   padding: 0.75em 0em; margin: -0.75em 0em 0em;
-  text-decoration: none;
-  opacity: 0; }
+  text-decoration: none; }
 #rate-selection em {
   color: #bbb; }
 
@@ -189,12 +198,14 @@ button {
 #rate-selection a.selected {
   background-repeat: no-repeat; background-position: 5% 50%; }
 
-/*                      *
- *                      *
- *    Animation         *
- *                      *
- *                      */
-#converter, #rate-selection {
+/*
+
+      Animation
+
+                        */
+
+#converter,
+#rate-selection {
   -webkit-transition: left 370ms; }
 body[class*="edit-rates-"] #rate-selection {
   left: 0%; }
@@ -204,13 +215,13 @@ body[class*="edit-rates-"] #converter {
 #rate-selection a {
   -webkit-transition: opacity 370ms; }
 .edit-rates-from #rate-selection a[id*="from-"] {
-  display: block;
-  opacity: 1; }
+  opacity: 1;
+  display: block; }
 .edit-rates-from #rate-selection a[id*="to-"] {
   display: none; }
 .edit-rates-to #rate-selection a[id*="to-"] {
-  display: block;
-  opacity: 1; }
+  opacity: 1;
+  display: block; }
 .edit-rates-to #rate-selection a[id*="from-"] {
   display: none; }
 
@@ -221,13 +232,11 @@ body[class*="edit-rates-"] #converter {
 .flip #flippable {
   -webkit-transform: rotateX(180deg); }
 
-/*  Non-app layouts     */
+/*
 
-/*                      *
-*                       *
-*    Credits page       *
-*                       *
-*                       */
+     Credits page
+
+                        */
 
 #credits {
   display: none;
@@ -239,11 +248,11 @@ body[class*="edit-rates-"] #converter {
 .credits #credits {
   display: block; }
 
-/*                      *
-*                       *
-*    Installation page  *
-*                       *
-*                       */
+/*
+
+     Installation page
+
+                        */
 
 #install {
   display: none;
@@ -253,36 +262,32 @@ body[class*="edit-rates-"] #converter {
 
 #install h1 {
   overflow: hidden;
-  width: 16em; height: 10.5em;
-  margin: 0.5em auto;
-  background-size: 100px 100px; background: url('/images/logo.png') 50% 0% no-repeat;
+  width: 16em; height: 10.5em; margin: 0.5em auto;
+  background: url('/images/logo.png') 50% 0% no-repeat; background-size: 100px 100px;
   text-indent: -8em; text-align: left; }
 #install h2 {
-  width: 16em;
-  margin: 0.4em auto;
+  width: 16em; margin: 0.4em auto;
   font-size: 1.9em; }
 #install > p {
-  width: 16em;
-  margin: 0em auto;
+  width: 16em; margin: 0em auto;
   color: #445;
   font-size: 1.4em; font-weight: normal; }
 
 #install-wrapper {
   position: absolute; bottom: 0.8em; left: 50%;
-  width: 12em;
-  margin-left: -7em; padding: 0.8em 1em 0.2em;
+  width: 12em; margin-left: -7em; padding: 0.8em 1em 0.2em;
   font-size: 1.6em; text-align: center; line-height: 1.3;
   background: #222;
   border-radius: 0.3em; -webkit-border-radius: 0.3em;
   box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0em 0em 0.8em rgba(0, 0, 0, 0.2); }
 #install-wrapper:after {
-  position: absolute; left: 5.8em; bottom: -0.4em;
   content: ' ';
+  position: absolute; left: 5.8em; bottom: -0.4em;
   width: 0em; height: 0em;
   border: 1.2em solid #222; border-bottom: none; border-left: 1.2em solid transparent; border-right: 1.2em solid transparent; }
 #install-wrapper p {
-  color: #bbb;
-  margin: 0em 0em 0.8em; }
+  margin: 0em 0em 0.8em;
+  color: #bbb; }
 #install-wrapper em {
   color: #fff;
   white-space: nowrap; }
@@ -291,11 +296,11 @@ body[class*="edit-rates-"] #converter {
   width: 24px; height: 22px;
   background: transparent none 50% 50% no-repeat; }
 
-/*                      *
-*                       *
-*    iPhone-specific   *
-*                       *
-*                       */
+/*
+
+     iPhone-specific
+
+                        */
 
 @media only screen and (max-device-width: 480px) {
   body {
@@ -303,7 +308,8 @@ body[class*="edit-rates-"] #converter {
   p span {
     font-size: 1.3em;
     margin: 0em -0.15em 0em 0em; }
-  #input h1, #output h1 {
+  #input h1,
+  #output h1 {
     letter-spacing: 0.02em; }
   #add-button {
     position: relative; top: 0.15em; }

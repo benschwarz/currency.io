@@ -1,8 +1,8 @@
-/*                      *
- *                      *
- *    Image sprites     *
- *                      *
- *                      */
+/*
+
+      Image sprites
+
+                        */
 /*  To cut down on image requests, we base64 the images into their own css file  */
 
 /*  Retina display resolution images  */
