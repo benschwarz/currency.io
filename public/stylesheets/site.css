@@ -25,18 +25,32 @@ video {
 
 h1 {
   overflow: hidden;
-  height: 0em; margin: 0em 0em 1em; padding-top: 8.6em;
+  height: 0em; margin: 0em 0em 0.75em; padding-top: 4.6em;
   background: url('/images/logo.png') 50% 0% no-repeat;
-  font-size: 1.6em; font-weight: normal; }
+  font-family: sans-serif; font-size: 3em; }
 p,
 h2 {
-  margin: 0.4em 0em 0em;
+  margin: 0.4em 0em 1em;
   color: #445;
   font-weight: normal; font-size: 1.4em; }
 a {
   color: inherit;
   border-bottom: 0.1em solid;
   text-decoration: none; }
+
+.highlight {
+  margin: 2em 0em 0em; padding: 1em;
+  background: #f0f0f0; }
+.highlight em {
+  display: block;
+  width: 11em; padding: 0.1em 0.2em; margin: 0.1em auto;
+  background: #c33; color: #fff;
+  font-style: normal;
+  border-radius: 0.5em; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em; -o-border-radius: 0.5em; }
+.highlight strong {
+  color: #002;
+  font-weight: normal; }
+
 .buttons {
   margin: 2em 0em;
 }
@@ -61,21 +75,10 @@ footer {
   width: 100%; margin: 0em; padding: 0.5em 0em 1em;
   background: rgba(240, 240, 240, 0.85);
   line-height: 1.4; }
-.highlight {
-  margin: 0em 0em 0em -2em; padding: 0em; }
-.highlight em {
-  display: block;
-  width: 11em; padding: 0.1em 0.2em; margin: 0.1em auto;
-  background: #c33; color: #fff;
-  font-style: normal;
-  border-radius: 0.5em; -webkit-border-radius: 0.5em; -moz-border-radius: 0.5em; -o-border-radius: 0.5em; }
-.highlight strong {
-  color: #002;
-  font-weight: normal; }
 
 .ab-c {
-  margin: 0.75em 0em 0em -2em; padding: 0.75em 0em 0em;
-  color: #999; border-top: 1px dotted #ccc;
+  margin: 0.5em 0em 0.5em -2em; padding: 0.75em 0em 0em;
+  color: #999;
   font-family: 'Andale Mono', 'Courier New', courier; font-size: 1em; line-height: 1.1; }
 .ab-c em {
   display: block;
