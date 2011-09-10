@@ -13,7 +13,7 @@ Targeting only modern (mobile) browsers means solid base64 support. So, the majo
 
 #### The app
 The app itself is running on Sinatra. It doesn't do anything fancy, it's just there to query and parse current currency rates from Yahoo.
-Currencies are pulled over HTTP from Yahoo's Finance services, the interesting aspect of this is that we [used YQL](http://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20%28%27USD%27%2C%20%27AUD%27%29) to do so. 
+Currencies are pulled over HTTP from Yahoo's Finance services [using YQL](http://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20%28%27USD%27%2C%20%27AUD%27%29).
 
 #### Other notes
 We're using an image to do the small drop shadows rather than using `box-shadow`, which turns out to be horrible for performance.
