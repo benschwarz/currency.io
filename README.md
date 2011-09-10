@@ -6,7 +6,7 @@ Visit <http://currency.io> on your iOS/Android phone to try it out.
 To build a useful, cohesive application for your phone using web standards.
 
 ### Javascript libraries
-Everything is built with raw html, css & javascript. We have decided against including a library like Zepto or jQuery. With the main browser targets being Android and iOS browsers, we can use `querySelectorAll` and `addEventListener` which covers most of what a library gives us anyway. Plus it cuts down on the file size, which is especially important when dealing with mobile.
+Everything is built with raw html, css & javascript. We decided against including a library like Zepto or jQuery. With the main browser targets being Android and iOS browsers, we can use `querySelectorAll` and `addEventListener` which covered the basic features that we'd rely on a library for normally. Plus it cuts down on the file size, which is especially important when dealing with mobile.
 
 ### Images
 Modern browsers means solid base64 support. So, the majority of images have been base64 encoded and inlined to cut down on requests (see `/public/stylesheets/images.css` & `/public/stylesheets/images-x2.css`).
