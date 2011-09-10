@@ -12,8 +12,7 @@ Everything is built with raw html, css & javascript. We decided against includin
 Targeting only modern (mobile) browsers means solid base64 support. So, the majority of images have been base64 encoded and inlined to cut down on requests (see `/public/stylesheets/images.css` & `/public/stylesheets/images-x2.css`). One may note that we used media queries to target older devices with `images.css` and iPhone 4 (retina display) with `images-x2.css`—This saved older devices from downloading high(er) resolution images needlessly. 
 
 ### The app
-The app itself is running on Sinatra. It doesn't do anything fancy, it's just there to query and parse current currency rates from Yahoo. If you haven't used Sinatra before, you can find all the markup within the `/views` folder, with each chunk of markup wrapped by `layout.erb`.
-
+The app itself is running on Sinatra. It doesn't do anything fancy, it's just there to query and parse current currency rates from Yahoo.
 Currencies are pulled over HTTP from Yahoo's Finance services, the interesting aspect of this is that we [used YQL](http://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys#h=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20%28%27USD%27%2C%20%27AUD%27%29) to do so. 
 
 ### Other notes
