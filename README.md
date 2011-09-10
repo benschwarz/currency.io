@@ -21,6 +21,7 @@ We're using an image to do the small drop shadows rather than using `box-shadow`
 We've designed everything using `em`s, which means you can scale everything up 150% and test it in Chrome or Safari (just be sure to set your user-agent string to iPhone or something supported). Much less hassle than testing directly in the iOS Simulator.
 
 Developing strictly for Android/iOS kicks ass.
+
 * No need for graceful degradation
 * querySelector & querySelectorAll
 * Native JSON parsing (in iOS 3.2+)
